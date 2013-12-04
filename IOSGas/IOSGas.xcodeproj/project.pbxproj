@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70B477D184FEBC700CF85DB /* preview-glyphish5.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4775184FEBC700CF85DB /* preview-glyphish5.png */; };
+		F70B477E184FEBC700CF85DB /* rebound.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4776184FEBC700CF85DB /* rebound.png */; };
+		F70B477F184FEBC700CF85DB /* tab-bar-icons-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4777184FEBC700CF85DB /* tab-bar-icons-ios7.png */; };
+		F70B4780184FEBC700CF85DB /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4778184FEBC700CF85DB /* edit.png */; };
+		F70B4781184FEBC700CF85DB /* edit1.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4779184FEBC700CF85DB /* edit1.png */; };
+		F70B4782184FEBC700CF85DB /* edit2.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477A184FEBC700CF85DB /* edit2.png */; };
+		F70B4783184FEBC700CF85DB /* Gas.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477B184FEBC700CF85DB /* Gas.png */; };
+		F70B4784184FEBC700CF85DB /* GasStation.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477C184FEBC700CF85DB /* GasStation.png */; };
 		F7C5EDE9184F9875009FD275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDE8184F9875009FD275 /* Foundation.framework */; };
 		F7C5EDEB184F9875009FD275 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDEA184F9875009FD275 /* CoreGraphics.framework */; };
 		F7C5EDED184F9875009FD275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDEC184F9875009FD275 /* UIKit.framework */; };
@@ -36,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F70B4775184FEBC700CF85DB /* preview-glyphish5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview-glyphish5.png"; sourceTree = "<group>"; };
+		F70B4776184FEBC700CF85DB /* rebound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rebound.png; sourceTree = "<group>"; };
+		F70B4777184FEBC700CF85DB /* tab-bar-icons-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-bar-icons-ios7.png"; sourceTree = "<group>"; };
+		F70B4778184FEBC700CF85DB /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		F70B4779184FEBC700CF85DB /* edit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit1.png; sourceTree = "<group>"; };
+		F70B477A184FEBC700CF85DB /* edit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit2.png; sourceTree = "<group>"; };
+		F70B477B184FEBC700CF85DB /* Gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gas.png; sourceTree = "<group>"; };
+		F70B477C184FEBC700CF85DB /* GasStation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GasStation.png; sourceTree = "<group>"; };
 		F7C5EDE5184F9875009FD275 /* IOSGas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSGas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C5EDE8184F9875009FD275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7C5EDEA184F9875009FD275 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +99,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F70B4773184FEBC700CF85DB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F70B4774184FEBC700CF85DB /* + */,
+				F70B4778184FEBC700CF85DB /* edit.png */,
+				F70B4779184FEBC700CF85DB /* edit1.png */,
+				F70B477A184FEBC700CF85DB /* edit2.png */,
+				F70B477B184FEBC700CF85DB /* Gas.png */,
+				F70B477C184FEBC700CF85DB /* GasStation.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		F70B4774184FEBC700CF85DB /* + */ = {
+			isa = PBXGroup;
+			children = (
+				F70B4775184FEBC700CF85DB /* preview-glyphish5.png */,
+				F70B4776184FEBC700CF85DB /* rebound.png */,
+				F70B4777184FEBC700CF85DB /* tab-bar-icons-ios7.png */,
+			);
+			path = "+";
+			sourceTree = "<group>";
+		};
 		F7C5EDDC184F9875009FD275 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +156,7 @@
 		F7C5EDF0184F9875009FD275 /* IOSGas */ = {
 			isa = PBXGroup;
 			children = (
+				F70B4773184FEBC700CF85DB /* Images */,
 				F7C5EDF9184F9876009FD275 /* ADSAppDelegate.h */,
 				F7C5EDFA184F9876009FD275 /* ADSAppDelegate.m */,
 				F7C5EDFF184F9876009FD275 /* Images.xcassets */,
@@ -232,9 +272,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70B4780184FEBC700CF85DB /* edit.png in Resources */,
+				F70B477D184FEBC700CF85DB /* preview-glyphish5.png in Resources */,
 				F7C5EDF5184F9876009FD275 /* InfoPlist.strings in Resources */,
+				F70B4783184FEBC700CF85DB /* Gas.png in Resources */,
+				F70B4781184FEBC700CF85DB /* edit1.png in Resources */,
+				F70B477F184FEBC700CF85DB /* tab-bar-icons-ios7.png in Resources */,
+				F70B4782184FEBC700CF85DB /* edit2.png in Resources */,
 				F7C5EE00184F9876009FD275 /* Images.xcassets in Resources */,
 				F7C5EE1E184F9BBA009FD275 /* Storyboard.storyboard in Resources */,
+				F70B4784184FEBC700CF85DB /* GasStation.png in Resources */,
+				F70B477E184FEBC700CF85DB /* rebound.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +506,7 @@
 				F7C5EE19184F9876009FD275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7C5EE1A184F9876009FD275 /* Build configuration list for PBXNativeTarget "IOSGasTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +515,7 @@
 				F7C5EE1C184F9876009FD275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
