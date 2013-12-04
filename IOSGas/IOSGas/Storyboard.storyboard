@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="e3W-5N-3YP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="e3W-5N-3YP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Prices-->
+        <!--View Controller - Gas-->
         <scene sceneID="t1j-Qj-sSJ">
             <objects>
                 <viewController id="G7c-f5-cDN" sceneMemberID="viewController">
@@ -66,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Prices" id="Ugw-kK-aUK">
+                                    <navigationItem title="Gas" id="Ugw-kK-aUK">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lPp-TZ-4MR">
                                             <connections>
                                                 <segue destination="z4y-1m-Rxn" kind="push" id="cdZ-lT-8c8"/>
@@ -78,7 +78,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Prices" id="JMY-le-Ubj"/>
+                    <tabBarItem key="tabBarItem" title="Gas" image="Gas.png" id="JMY-le-Ubj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Nn-z7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,7 +101,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Informations" id="n3o-nm-Vpl">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="XaM-Vu-XtX">
+                                        <barButtonItem key="rightBarButtonItem" image="edit1.png" id="XaM-Vu-XtX">
                                             <connections>
                                                 <segue destination="z4y-1m-Rxn" kind="push" id="XzK-g9-NZc"/>
                                             </connections>
@@ -151,7 +151,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Informations" id="Pwl-qQ-1pi">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="3Bb-DN-5nY">
+                                        <barButtonItem key="rightBarButtonItem" image="edit1.png" id="3Bb-DN-5nY">
                                             <connections>
                                                 <segue destination="8Of-kD-8Y3" kind="push" id="ZyP-LA-ade"/>
                                             </connections>
@@ -243,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZW-59-NLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="775"/>
+            <point key="canvasLocation" x="1826" y="849"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tVT-1U-3EK">
@@ -296,7 +296,7 @@
         <scene sceneID="cAr-j4-nRX">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="e3W-5N-3YP" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="453-zQ-cNS">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -314,7 +314,6 @@
         <!--View Controller - Gas Stations-->
         <scene sceneID="hfD-t5-kHS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="LZW-Yg-uPB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5H-cx-HPy"/>
@@ -371,19 +370,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Gas Stations" id="PI1-S2-T0O"/>
+                    <tabBarItem key="tabBarItem" title="Gas Stations" image="GasStation.png" id="PI1-S2-T0O"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="-187"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gas.png" width="60" height="60"/>
+        <image name="GasStation.png" width="60" height="60"/>
+        <image name="edit1.png" width="60" height="60"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Wed-R6-yTP"/>
+        <segue reference="ZyP-LA-ade"/>
         <segue reference="cdZ-lT-8c8"/>
     </inferredMetricsTieBreakers>
 </document>
