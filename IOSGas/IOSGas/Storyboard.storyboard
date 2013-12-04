@@ -380,7 +380,7 @@
     <resources>
         <image name="Gas.png" width="60" height="60"/>
         <image name="GasStation.png" width="60" height="60"/>
-        <image name="edit1.png" width="30" height="30"/>
+        <image name="edit1.png" width="23" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
