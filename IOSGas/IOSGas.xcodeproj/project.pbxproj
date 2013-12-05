@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2790D9918501A340014EE80 /* PriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2790D9818501A340014EE80 /* PriceViewController.m */; };
 		F70B477D184FEBC700CF85DB /* preview-glyphish5.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4775184FEBC700CF85DB /* preview-glyphish5.png */; };
 		F70B477E184FEBC700CF85DB /* rebound.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4776184FEBC700CF85DB /* rebound.png */; };
 		F70B477F184FEBC700CF85DB /* tab-bar-icons-ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B4777184FEBC700CF85DB /* tab-bar-icons-ios7.png */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2790D9718501A340014EE80 /* PriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceViewController.h; sourceTree = "<group>"; };
+		A2790D9818501A340014EE80 /* PriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceViewController.m; sourceTree = "<group>"; };
 		F70B4775184FEBC700CF85DB /* preview-glyphish5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview-glyphish5.png"; sourceTree = "<group>"; };
 		F70B4776184FEBC700CF85DB /* rebound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rebound.png; sourceTree = "<group>"; };
 		F70B4777184FEBC700CF85DB /* tab-bar-icons-ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-bar-icons-ios7.png"; sourceTree = "<group>"; };
@@ -99,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2790D95185019FC0014EE80 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A2790D9618501A090014EE80 /* Views */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		A2790D9618501A090014EE80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2790D9718501A340014EE80 /* PriceViewController.h */,
+				A2790D9818501A340014EE80 /* PriceViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F70B4773184FEBC700CF85DB /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +176,7 @@
 		F7C5EDF0184F9875009FD275 /* IOSGas */ = {
 			isa = PBXGroup;
 			children = (
+				A2790D95185019FC0014EE80 /* Components */,
 				F70B4773184FEBC700CF85DB /* Images */,
 				F7C5EDF9184F9876009FD275 /* ADSAppDelegate.h */,
 				F7C5EDFA184F9876009FD275 /* ADSAppDelegate.m */,
@@ -303,6 +324,7 @@
 			files = (
 				F7C5EDF7184F9876009FD275 /* main.m in Sources */,
 				F7C5EDFB184F9876009FD275 /* ADSAppDelegate.m in Sources */,
+				A2790D9918501A340014EE80 /* PriceViewController.m in Sources */,
 				F7C5EDFE184F9876009FD275 /* IOSGas.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

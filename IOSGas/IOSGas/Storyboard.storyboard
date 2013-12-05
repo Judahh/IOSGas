@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="e3W-5N-3YP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="e3W-5N-3YP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="axC-Lz-aVA">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="BpQ-r3-hZb">
@@ -62,14 +62,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-WF-eDU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-WF-eDU">
+                                <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Gas" id="Ugw-kK-aUK">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lPp-TZ-4MR">
                                             <connections>
-                                                <segue destination="z4y-1m-Rxn" kind="push" id="cdZ-lT-8c8"/>
+                                                <segue destination="Bso-kH-gtA" kind="push" id="tCY-kd-47g"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -245,10 +245,26 @@
             </objects>
             <point key="canvasLocation" x="1826" y="849"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="dXO-IN-Es2">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Bso-kH-gtA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tPD-cm-g1J"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wyb-2Y-hPA">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="z4y-1m-Rxn" kind="relationship" relationship="rootViewController" id="CKK-Ey-knU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFu-YL-2lO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="-1474"/>
+        </scene>
+        <!--Price View Controller-->
         <scene sceneID="tVT-1U-3EK">
             <objects>
-                <viewController id="z4y-1m-Rxn" sceneMemberID="viewController">
+                <viewController id="z4y-1m-Rxn" customClass="PriceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="52R-7c-Stv"/>
                         <viewControllerLayoutGuide type="bottom" id="PHq-FJ-EV9"/>
@@ -258,20 +274,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price (US$)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nL7-N2-jlr">
-                                <rect key="frame" x="20" y="44" width="280" height="30"/>
+                                <rect key="frame" x="20" y="77" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQQ-yl-Fa7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Price" id="OVx-ay-yM3"/>
-                                </items>
-                            </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gnm-71-Dux">
-                                <rect key="frame" x="20" y="82" width="280" height="29"/>
+                                <rect key="frame" x="20" y="115" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Gas"/>
@@ -280,7 +289,7 @@
                                 </segments>
                             </segmentedControl>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R0H-CU-AOQ">
-                                <rect key="frame" x="0.0" y="118" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="151" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -290,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-1895"/>
+            <point key="canvasLocation" x="1852" y="-1567"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cAr-j4-nRX">
@@ -309,7 +318,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya1-Tj-glT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="-513"/>
+            <point key="canvasLocation" x="-75" y="-503"/>
         </scene>
         <!--View Controller - Gas Stations-->
         <scene sceneID="hfD-t5-kHS">
@@ -324,7 +333,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pa7-SJ-ZcT">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="2rI-yv-KCm">
@@ -354,8 +363,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqU-u3-YQp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqU-u3-YQp">
+                                <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Gas Stations" id="Ubz-CE-a1P">
@@ -380,7 +389,7 @@
     <resources>
         <image name="Gas.png" width="60" height="60"/>
         <image name="GasStation.png" width="60" height="60"/>
-        <image name="edit1.png" width="30" height="30"/>
+        <image name="edit1.png" width="23" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -388,7 +397,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZyP-LA-ade"/>
-        <segue reference="cdZ-lT-8c8"/>
+        <segue reference="Wed-R6-yTP"/>
+        <segue reference="CKK-Ey-knU"/>
     </inferredMetricsTieBreakers>
 </document>
