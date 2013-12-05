@@ -16,6 +16,9 @@
 		F70B4782184FEBC700CF85DB /* edit2.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477A184FEBC700CF85DB /* edit2.png */; };
 		F70B4783184FEBC700CF85DB /* Gas.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477B184FEBC700CF85DB /* Gas.png */; };
 		F70B4784184FEBC700CF85DB /* GasStation.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477C184FEBC700CF85DB /* GasStation.png */; };
+		F749E7CD1850EEB600926F58 /* EditPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7CC1850EEB600926F58 /* EditPriceViewController.m */; };
+		F749E7D01850EF4E00926F58 /* GasStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7CF1850EF4E00926F58 /* GasStationViewController.m */; };
+		F749E7D31850EF9400926F58 /* EditGasStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7D21850EF9400926F58 /* EditGasStationViewController.m */; };
 		F7C5EDE9184F9875009FD275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDE8184F9875009FD275 /* Foundation.framework */; };
 		F7C5EDEB184F9875009FD275 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDEA184F9875009FD275 /* CoreGraphics.framework */; };
 		F7C5EDED184F9875009FD275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C5EDEC184F9875009FD275 /* UIKit.framework */; };
@@ -55,6 +58,12 @@
 		F70B477A184FEBC700CF85DB /* edit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit2.png; sourceTree = "<group>"; };
 		F70B477B184FEBC700CF85DB /* Gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gas.png; sourceTree = "<group>"; };
 		F70B477C184FEBC700CF85DB /* GasStation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GasStation.png; sourceTree = "<group>"; };
+		F749E7CB1850EEB600926F58 /* EditPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPriceViewController.h; sourceTree = "<group>"; };
+		F749E7CC1850EEB600926F58 /* EditPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPriceViewController.m; sourceTree = "<group>"; };
+		F749E7CE1850EF4E00926F58 /* GasStationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GasStationViewController.h; sourceTree = "<group>"; };
+		F749E7CF1850EF4E00926F58 /* GasStationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GasStationViewController.m; sourceTree = "<group>"; };
+		F749E7D11850EF9400926F58 /* EditGasStationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditGasStationViewController.h; sourceTree = "<group>"; };
+		F749E7D21850EF9400926F58 /* EditGasStationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditGasStationViewController.m; sourceTree = "<group>"; };
 		F7C5EDE5184F9875009FD275 /* IOSGas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSGas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C5EDE8184F9875009FD275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F7C5EDEA184F9875009FD275 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +124,12 @@
 			children = (
 				A2790D9718501A340014EE80 /* PriceViewController.h */,
 				A2790D9818501A340014EE80 /* PriceViewController.m */,
+				F749E7CB1850EEB600926F58 /* EditPriceViewController.h */,
+				F749E7CC1850EEB600926F58 /* EditPriceViewController.m */,
+				F749E7CE1850EF4E00926F58 /* GasStationViewController.h */,
+				F749E7CF1850EF4E00926F58 /* GasStationViewController.m */,
+				F749E7D11850EF9400926F58 /* EditGasStationViewController.h */,
+				F749E7D21850EF9400926F58 /* EditGasStationViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,10 +191,10 @@
 		F7C5EDF0184F9875009FD275 /* IOSGas */ = {
 			isa = PBXGroup;
 			children = (
-				A2790D95185019FC0014EE80 /* Components */,
-				F70B4773184FEBC700CF85DB /* Images */,
 				F7C5EDF9184F9876009FD275 /* ADSAppDelegate.h */,
 				F7C5EDFA184F9876009FD275 /* ADSAppDelegate.m */,
+				A2790D95185019FC0014EE80 /* Components */,
+				F70B4773184FEBC700CF85DB /* Images */,
 				F7C5EDFF184F9876009FD275 /* Images.xcassets */,
 				F7C5EDFC184F9876009FD275 /* IOSGas.xcdatamodeld */,
 				F7C5EDF1184F9875009FD275 /* Supporting Files */,
@@ -323,9 +338,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C5EDF7184F9876009FD275 /* main.m in Sources */,
+				F749E7D31850EF9400926F58 /* EditGasStationViewController.m in Sources */,
 				F7C5EDFB184F9876009FD275 /* ADSAppDelegate.m in Sources */,
 				A2790D9918501A340014EE80 /* PriceViewController.m in Sources */,
 				F7C5EDFE184F9876009FD275 /* IOSGas.xcdatamodeld in Sources */,
+				F749E7CD1850EEB600926F58 /* EditPriceViewController.m in Sources */,
+				F749E7D01850EF4E00926F58 /* GasStationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
