@@ -178,11 +178,11 @@
 			children = (
 				A2790D95185019FC0014EE80 /* Components */,
 				F70B4773184FEBC700CF85DB /* Images */,
-				F7C5EDF1184F9875009FD275 /* Supporting Files */,
-				F7C5EDFA184F9876009FD275 /* ADSAppDelegate.m */,
 				F7C5EDF9184F9876009FD275 /* ADSAppDelegate.h */,
+				F7C5EDFA184F9876009FD275 /* ADSAppDelegate.m */,
 				F7C5EDFF184F9876009FD275 /* Images.xcassets */,
 				F7C5EDFC184F9876009FD275 /* IOSGas.xcdatamodeld */,
+				F7C5EDF1184F9875009FD275 /* Supporting Files */,
 				F7C5EE1D184F9BBA009FD275 /* Storyboard.storyboard */,
 			);
 			path = IOSGas;
