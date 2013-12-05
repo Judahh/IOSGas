@@ -152,7 +152,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="u6C-e9-yX0">
-                        <barButtonItem key="rightBarButtonItem" image="edit1.png" id="kTn-ZL-Of2"/>
+                        <barButtonItem key="rightBarButtonItem" image="edit1.png" id="kTn-ZL-Of2">
+                            <connections>
+                                <segue destination="8Of-kD-8Y3" kind="push" id="3Qs-cD-YnQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29v-W7-wZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
