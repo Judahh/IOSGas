@@ -211,7 +211,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9EO-fx-fPA"/>
+                    <navigationItem key="navigationItem" id="9EO-fx-fPA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IYd-W4-uEK"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZW-59-NLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,7 +253,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ps3-Qr-0m3"/>
+                    <navigationItem key="navigationItem" id="Ps3-Qr-0m3">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="7wb-aP-mLe"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
