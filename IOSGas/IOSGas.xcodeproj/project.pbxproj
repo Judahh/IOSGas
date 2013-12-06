@@ -16,6 +16,7 @@
 		F70B4782184FEBC700CF85DB /* edit2.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477A184FEBC700CF85DB /* edit2.png */; };
 		F70B4783184FEBC700CF85DB /* Gas.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477B184FEBC700CF85DB /* Gas.png */; };
 		F70B4784184FEBC700CF85DB /* GasStation.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477C184FEBC700CF85DB /* GasStation.png */; };
+		F7107B41185158B000B3B764 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = F7107B40185158B000B3B764 /* save.png */; };
 		F749E7CD1850EEB600926F58 /* EditFuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7CC1850EEB600926F58 /* EditFuelViewController.m */; };
 		F749E7D01850EF4E00926F58 /* GasStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7CF1850EF4E00926F58 /* GasStationViewController.m */; };
 		F749E7D31850EF9400926F58 /* EditGasStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F749E7D21850EF9400926F58 /* EditGasStationViewController.m */; };
@@ -63,6 +64,7 @@
 		F70B477A184FEBC700CF85DB /* edit2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit2.png; sourceTree = "<group>"; };
 		F70B477B184FEBC700CF85DB /* Gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gas.png; sourceTree = "<group>"; };
 		F70B477C184FEBC700CF85DB /* GasStation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GasStation.png; sourceTree = "<group>"; };
+		F7107B40185158B000B3B764 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		F749E7CB1850EEB600926F58 /* EditFuelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFuelViewController.h; sourceTree = "<group>"; };
 		F749E7CC1850EEB600926F58 /* EditFuelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFuelViewController.m; sourceTree = "<group>"; };
 		F749E7CE1850EF4E00926F58 /* GasStationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GasStationViewController.h; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				F70B4774184FEBC700CF85DB /* + */,
 				F70B4778184FEBC700CF85DB /* edit.png */,
+				F7107B40185158B000B3B764 /* save.png */,
 				F70B4779184FEBC700CF85DB /* edit1.png */,
 				F70B477A184FEBC700CF85DB /* edit2.png */,
 				F70B477B184FEBC700CF85DB /* Gas.png */,
@@ -343,6 +346,7 @@
 			files = (
 				F70B4780184FEBC700CF85DB /* edit.png in Resources */,
 				F70B477D184FEBC700CF85DB /* preview-glyphish5.png in Resources */,
+				F7107B41185158B000B3B764 /* save.png in Resources */,
 				F7C5EDF5184F9876009FD275 /* InfoPlist.strings in Resources */,
 				F70B4783184FEBC700CF85DB /* Gas.png in Resources */,
 				F70B4781184FEBC700CF85DB /* edit1.png in Resources */,
