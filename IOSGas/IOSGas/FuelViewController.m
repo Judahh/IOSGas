@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title = @"Price";
+	// self.title = @"Fuel";
 }
 
 - (void)didReceiveMemoryWarning

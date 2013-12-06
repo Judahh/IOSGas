@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Gas Station";
 	// Do any additional setup after loading the view.
 }
 
