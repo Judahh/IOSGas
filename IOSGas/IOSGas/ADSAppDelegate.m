@@ -146,4 +146,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
++(ADSAppDelegate *)sharedAppDelegate {
+	return [UIApplication sharedApplication].delegate;
+}
 @end

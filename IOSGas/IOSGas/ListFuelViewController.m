@@ -6,13 +6,18 @@
 //  Copyright (c) 2013 Judah Holanda. All rights reserved.
 //
 
+#import "Fuel.h"
+#import "GasStation.h"
+#import "ADSAppDelegate.h"
 #import "ListFuelViewController.h"
 
 @interface ListFuelViewController ()
 
 @end
 
-@implementation ListFuelViewController
+@implementation ListFuelViewController{
+	NSArray *_Fuels;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

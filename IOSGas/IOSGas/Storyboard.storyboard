@@ -254,7 +254,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Fuel" id="Ps3-Qr-0m3">
-                        <barButtonItem key="rightBarButtonItem" image="save.png" id="7wb-aP-mLe"/>
+                        <barButtonItem key="rightBarButtonItem" image="save.png" id="7wb-aP-mLe">
+                            <connections>
+                                <action selector="saveAction:" destination="z4y-1m-Rxn" id="1XR-6v-WFU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
