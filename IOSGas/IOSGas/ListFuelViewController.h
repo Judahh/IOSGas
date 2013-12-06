@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListPriceViewController : UIViewController
+@interface ListFuelViewController : UIViewController
 
 @end

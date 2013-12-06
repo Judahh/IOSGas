@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PriceViewController : UIViewController
+@interface FuelViewController : UIViewController
 
 @end

@@ -1,18 +1,18 @@
 //
-//  ListPriceViewController.m
+//  PriceViewController.m
 //  IOSGas
 //
-//  Created by Judah Holanda on 12/5/13.
+//  Created by Tarciso Torres on 12/4/13.
 //  Copyright (c) 2013 Judah Holanda. All rights reserved.
 //
 
-#import "ListPriceViewController.h"
+#import "FuelViewController.h"
 
-@interface ListPriceViewController ()
+@interface FuelViewController ()
 
 @end
 
-@implementation ListPriceViewController
+@implementation FuelViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.title = @"Price";
 }
 
 - (void)didReceiveMemoryWarning

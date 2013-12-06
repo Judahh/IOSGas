@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Judah Holanda. All rights reserved.
 //
 
-#import "EditPriceViewController.h"
+#import "EditFuelViewController.h"
 
-@interface EditPriceViewController ()
+@interface EditFuelViewController ()
 
 @end
 
-@implementation EditPriceViewController
+@implementation EditFuelViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

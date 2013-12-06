@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FvO-RH-E60">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FvO-RH-E60">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--List Price View Contoller - Price-->
+        <!--List Fuel View Controller - Fuel-->
         <scene sceneID="t1j-Qj-sSJ">
             <objects>
-                <viewController id="G7c-f5-cDN" customClass="ListPriceViewContoller" sceneMemberID="viewController">
+                <viewController id="G7c-f5-cDN" customClass="ListFuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NmB-He-tSt"/>
                         <viewControllerLayoutGuide type="bottom" id="NFB-FM-yY3"/>
@@ -65,16 +65,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Price" image="Gas.png" id="JMY-le-Ubj"/>
+                    <tabBarItem key="tabBarItem" title="Fuel" image="Gas.png" id="JMY-le-Ubj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Nn-z7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="-847"/>
         </scene>
-        <!--Price View Controller - Price-->
+        <!--Fuel View Controller - Fuel Information-->
         <scene sceneID="MvT-cU-toa">
             <objects>
-                <viewController id="PR0-sh-RUc" customClass="PriceViewController" sceneMemberID="viewController">
+                <viewController id="PR0-sh-RUc" customClass="FuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oPr-Db-4TI"/>
                         <viewControllerLayoutGuide type="bottom" id="yN1-R1-8HS"/>
@@ -108,7 +108,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Price" id="Dok-sw-SG0">
+                    <navigationItem key="navigationItem" title="Fuel Information" id="Dok-sw-SG0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="JmU-06-5Io">
                             <connections>
                                 <segue destination="z4y-1m-Rxn" kind="push" id="ifI-U8-lLG"/>
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1286" y="-847"/>
         </scene>
-        <!--Gas Station View Controller-->
+        <!--Gas Station View Controller - Gas Station Information-->
         <scene sceneID="fQg-pA-8Rf">
             <objects>
                 <viewController id="jEr-Dn-tSM" customClass="GasStationViewController" sceneMemberID="viewController">
@@ -157,7 +157,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="u6C-e9-yX0">
+                    <navigationItem key="navigationItem" title="Gas Station Information" id="u6C-e9-yX0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="kTn-ZL-Of2">
                             <connections>
                                 <segue destination="8Of-kD-8Y3" kind="push" id="3Qs-cD-YnQ"/>
@@ -169,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="1286" y="-187"/>
         </scene>
-        <!--Edit Gas Station View Controller-->
+        <!--Edit Gas Station View Controller - Edit Gas Station-->
         <scene sceneID="tAk-TS-WPE">
             <objects>
                 <viewController id="8Of-kD-8Y3" customClass="EditGasStationViewController" sceneMemberID="viewController">
@@ -211,7 +211,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9EO-fx-fPA">
+                    <navigationItem key="navigationItem" title="Edit Gas Station" id="9EO-fx-fPA">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="IYd-W4-uEK"/>
                     </navigationItem>
                 </viewController>
@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="1900" y="-187"/>
         </scene>
-        <!--Edit Price View Controller-->
+        <!--Edit Fuel View Controller - Edit Fuel-->
         <scene sceneID="tVT-1U-3EK">
             <objects>
-                <viewController id="z4y-1m-Rxn" customClass="EditPriceViewController" sceneMemberID="viewController">
+                <viewController id="z4y-1m-Rxn" customClass="EditFuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="52R-7c-Stv"/>
                         <viewControllerLayoutGuide type="bottom" id="PHq-FJ-EV9"/>
@@ -253,7 +253,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ps3-Qr-0m3">
+                    <navigationItem key="navigationItem" title="Edit Fuel" id="Ps3-Qr-0m3">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="7wb-aP-mLe"/>
                     </navigationItem>
                 </viewController>
@@ -283,11 +283,10 @@
             </objects>
             <point key="canvasLocation" x="-75" y="-503"/>
         </scene>
-        <!--List Gas Station View Contoller - Gas Stations-->
+        <!--List Gas Station View Controller - Gas Stations-->
         <scene sceneID="hfD-t5-kHS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="LZW-Yg-uPB" customClass="ListGasStationViewContoller" sceneMemberID="viewController">
+                <viewController id="LZW-Yg-uPB" customClass="ListGasStationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5H-cx-HPy"/>
                         <viewControllerLayoutGuide type="bottom" id="wvP-H2-iO5"/>
@@ -332,6 +331,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Stations" image="GasStation.png" id="PI1-S2-T0O"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="-187"/>
         </scene>
