@@ -49,11 +49,11 @@
     NSManagedObjectContext *context = [ADSAppDelegate sharedAppDelegate].managedObjectContext;
 	
 	if (_fuel == nil)
-		_fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Authors" inManagedObjectContext:context];
+		_fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuels" inManagedObjectContext:context];
 	
-	_fuel.fuelId = [NSNumber numberWithInt:[_fuelIdTextField.text integerValue]];
+	//_fuel.fuelId = [NSNumber numberWithInt:[_fuelIdTextField.text integerValue]];
 	
-	_fuel.type = _nameTextField.text;
+	//_fuel.type = _nameTextField.text;
     
 	[context save:NULL];
 	
