@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Fuel.h"
 
 @interface EditFuelViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *price;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *type;
+@property (weak, nonatomic) IBOutlet UIPickerView *gasStation;
 
+@property Fuel *fuel;
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "EditFuelViewController.h"
+#import "Fuel.h"
+#import "ADSAppDelegate.h"
 
 @interface EditFuelViewController ()
 
@@ -23,6 +25,14 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	if (_fuel != nil) {
+		_price.text = [NSString stringWithFormat:@"%@", _fuel.type];
+		//_type.selectedSegment = _fuel.type;
+        //_gasStation
+	}
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,6 +46,17 @@
 }
 
 - (IBAction)saveAction:(id)sender {
-}
+    NSManagedObjectContext *context = [ADSAppDelegate sharedAppDelegate].managedObjectContext;
+	
+	if (_fuel == nil)
+		_fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Authors" inManagedObjectContext:context];
+	
+	_fuel.fuelId = [NSNumber numberWithInt:[_fuelIdTextField.text integerValue]];
+	
+	_fuel.type = _nameTextField.text;
+    
+	[context save:NULL];
+	
+	[self.navigationController popViewControllerAnimated:YES];}
 
 @end
