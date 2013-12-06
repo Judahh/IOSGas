@@ -7,16 +7,16 @@
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="gasStation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GasStation" syncable="YES"/>
+        <relationship name="gasStation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GasStation" syncable="YES"/>
     </entity>
     <entity name="GasStation" representedClassName="GasStation" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="distributor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Distributor" syncable="YES"/>
+        <relationship name="distributor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Distributor" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Distributor" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Fuel" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="GasStation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Distributor" positionX="144" positionY="-213" width="144" height="60"/>
+        <element name="Fuel" positionX="-72" positionY="-360" width="144" height="88"/>
+        <element name="GasStation" positionX="144" positionY="-367" width="144" height="88"/>
     </elements>
 </model>
