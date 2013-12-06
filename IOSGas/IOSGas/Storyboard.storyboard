@@ -254,7 +254,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Fuel" id="Ps3-Qr-0m3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="7wb-aP-mLe"/>
+                        <barButtonItem key="rightBarButtonItem" image="save.png" id="7wb-aP-mLe"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -355,6 +355,7 @@
         <image name="Gas.png" width="60" height="60"/>
         <image name="GasStation.png" width="60" height="60"/>
         <image name="edit1.png" width="23" height="23"/>
+        <image name="save.png" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
