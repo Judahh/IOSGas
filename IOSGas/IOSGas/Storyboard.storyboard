@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FvO-RH-E60">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FvO-RH-E60">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -26,7 +26,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nui-ty-S9H">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nui-ty-S9H" customClass="FuelCell">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nui-ty-S9H" id="OTE-Jp-s62">
@@ -57,15 +57,26 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PR0-sh-RUc" kind="push" id="Zrb-PS-cKT"/>
+                                            <outlet property="GasStationLabel" destination="FAL-wx-gaz" id="BsM-do-zEf"/>
+                                            <outlet property="fuelTypeLabel" destination="Dn1-VL-E4p" id="v1e-bM-vC7"/>
+                                            <outlet property="gasStationLabel" destination="FAL-wx-gaz" id="j7s-eu-cY8"/>
+                                            <outlet property="priceLabel" destination="HL1-5a-wxf" id="bBK-Fk-lLa"/>
+                                            <segue destination="PR0-sh-RUc" kind="push" identifier="goToFuelInformation" id="Zrb-PS-cKT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="G7c-f5-cDN" id="uBa-dW-0U3"/>
+                                    <outlet property="delegate" destination="G7c-f5-cDN" id="jZo-bn-2mk"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fuel" image="Gas.png" id="JMY-le-Ubj"/>
+                    <connections>
+                        <outlet property="table" destination="axC-Lz-aVA" id="r2f-dh-zen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Nn-z7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,10 +225,16 @@
                     <navigationItem key="navigationItem" title="Edit Gas Station" id="9EO-fx-fPA">
                         <barButtonItem key="rightBarButtonItem" image="save.png" id="IYd-W4-uEK"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressMap" destination="UFn-t4-Cud" id="OuG-QE-mTB"/>
+                        <outlet property="addressTextField" destination="2ZN-YH-YaC" id="JiF-dl-sOe"/>
+                        <outlet property="distributorSegmentedControl" destination="hrk-Ig-Ptf" id="4cP-Za-hpT"/>
+                        <outlet property="nameTextField" destination="WbS-bH-t2R" id="0NW-c9-jpo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZW-59-NLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-187"/>
+            <point key="canvasLocation" x="693" y="569"/>
         </scene>
         <!--Edit Fuel View Controller - Edit Fuel-->
         <scene sceneID="tVT-1U-3EK">
@@ -268,14 +285,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-847"/>
+            <point key="canvasLocation" x="693" y="-1553"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--First Tab Bar Controller - Search-->
         <scene sceneID="cAr-j4-nRX">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="e3W-5N-3YP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="byz-yd-Ryy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qv3-BM-4kH"/>
+                <tabBarController definesPresentationContext="YES" id="e3W-5N-3YP" customClass="UIFirstTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Search" id="byz-yd-Ryy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qv3-BM-4kH">
+                            <connections>
+                                <action selector="AddItem:" destination="e3W-5N-3YP" id="q9J-qi-tUA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="453-zQ-cNS">
@@ -284,8 +305,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="AddButton" destination="qv3-BM-4kH" id="hJ9-0Y-AoS"/>
                         <segue destination="G7c-f5-cDN" kind="relationship" relationship="viewControllers" id="wN4-Hl-RxS"/>
                         <segue destination="LZW-Yg-uPB" kind="relationship" relationship="viewControllers" id="VMR-1Z-2ib"/>
+                        <segue destination="z4y-1m-Rxn" kind="push" identifier="goToNewFuel" id="FvF-rF-BUJ"/>
+                        <segue destination="8Of-kD-8Y3" kind="push" identifier="goToNewGasStation" id="7n7-DS-rxL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya1-Tj-glT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,7 +338,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uXo-TM-Djg">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uXo-TM-Djg" customClass="GasStationCell">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uXo-TM-Djg" id="h2M-DL-t1l">
@@ -330,7 +354,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jEr-Dn-tSM" kind="push" id="c6m-39-ASn"/>
+                                            <outlet property="nameLabel" destination="rQz-Pn-F2V" id="nH2-Tz-3UB"/>
+                                            <segue destination="jEr-Dn-tSM" kind="push" identifier="goToGasStationInformation" id="c6m-39-ASn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -339,6 +364,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Stations" image="GasStation.png" id="PI1-S2-T0O"/>
+                    <connections>
+                        <outlet property="table" destination="Pa7-SJ-ZcT" id="1kj-6p-KTo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,4 +399,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="7n7-DS-rxL"/>
+        <segue reference="ifI-U8-lLG"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListFuelViewController : UIViewController
+@interface ListFuelViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableView *table;
 @end

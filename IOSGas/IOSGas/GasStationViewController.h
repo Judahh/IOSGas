@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GasStation.h"
 
 @interface GasStationViewController : UIViewController
+
+@property (nonatomic, strong) GasStation *gasStation;
 
 @end

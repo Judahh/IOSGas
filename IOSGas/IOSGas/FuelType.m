@@ -1,21 +1,18 @@
 //
-//  GasStation.m
+//  FuelType.m
 //  IOSGas
 //
 //  Created by Judah Holanda on 12/6/13.
 //  Copyright (c) 2013 Judah Holanda. All rights reserved.
 //
 
-#import "GasStation.h"
-#import "Distributor.h"
+#import "FuelType.h"
 #import "Fuel.h"
 
 
-@implementation GasStation
+@implementation FuelType
 
-@dynamic address;
-@dynamic name;
-@dynamic distributor;
+@dynamic type;
 @dynamic fuel;
 
 @end

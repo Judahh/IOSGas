@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FuelPrice.h"
 
 @interface FuelViewController : UIViewController
+
+@property (nonatomic, strong) FuelPrice *fuelPrice;
 
 @end
