@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "GasStation.h"
 
 @interface GasStationViewController : UIViewController
 
 @property (nonatomic, strong) GasStation *gasStation;
-
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distributorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *map;
+-(CLLocationCoordinate2D) getLocationFromAddressString:(NSString*) addressString;
 @end

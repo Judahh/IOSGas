@@ -12,5 +12,8 @@
 @interface FuelViewController : UIViewController
 
 @property (nonatomic, strong) FuelPrice *fuelPrice;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gasStationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end

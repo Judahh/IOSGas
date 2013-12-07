@@ -126,6 +126,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="LgJ-j1-QDW" id="g3k-PJ-Oa1"/>
+                        <outlet property="gasStationLabel" destination="g6j-2Z-OH9" id="hb8-um-4sM"/>
+                        <outlet property="priceLabel" destination="3zF-om-heC" id="mdb-7V-NUU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDm-E2-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,6 +180,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="yA4-Tu-zeG" id="BG3-BE-vSn"/>
+                        <outlet property="distributorLabel" destination="w2q-4p-Cc8" id="0zC-0S-Xna"/>
+                        <outlet property="map" destination="EeZ-1c-Q1w" id="5ft-S7-07A"/>
+                        <outlet property="nameLabel" destination="ku7-Gg-wma" id="9Sx-RQ-2Ky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29v-W7-wZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,7 +284,7 @@
                     <navigationItem key="navigationItem" title="Edit Fuel" id="Ps3-Qr-0m3">
                         <barButtonItem key="rightBarButtonItem" image="save.png" id="7wb-aP-mLe">
                             <connections>
-                                <action selector="saveAction:" destination="z4y-1m-Rxn" id="1XR-6v-WFU"/>
+                                <action selector="save:" destination="z4y-1m-Rxn" id="Exh-jp-hAl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -400,7 +411,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7n7-DS-rxL"/>
+        <segue reference="3Qs-cD-YnQ"/>
         <segue reference="ifI-U8-lLG"/>
     </inferredMetricsTieBreakers>
 </document>

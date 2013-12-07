@@ -29,10 +29,10 @@
     <fetchRequest name="FetchRequestForAllFuelTypes" entity="FuelType"/>
     <fetchRequest name="FetchRequestForAllGasStations" entity="GasStation"/>
     <elements>
-        <element name="Distributor" positionX="144" positionY="-213" width="144" height="60"/>
+        <element name="Distributor" positionX="144" positionY="-573" width="144" height="60"/>
         <element name="Fuel" positionX="-72" positionY="-360" width="144" height="88"/>
-        <element name="GasStation" positionX="-81" positionY="-160" width="144" height="88"/>
-        <element name="FuelType" positionX="36" positionY="-234" width="128" height="73"/>
-        <element name="FuelPrice" positionX="45" positionY="-225" width="128" height="73"/>
+        <element name="FuelPrice" positionX="-288" positionY="-360" width="146" height="73"/>
+        <element name="FuelType" positionX="144" positionY="-360" width="144" height="73"/>
+        <element name="GasStation" positionX="-72" positionY="-576" width="144" height="88"/>
     </elements>
 </model>

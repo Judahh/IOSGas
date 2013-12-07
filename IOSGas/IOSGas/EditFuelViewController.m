@@ -8,6 +8,9 @@
 
 #import "EditFuelViewController.h"
 #import "Fuel.h"
+#import "FuelPrice.h"
+#import "FuelType.h"
+#import "GasStation.h"
 #import "ADSAppDelegate.h"
 
 @interface EditFuelViewController ()
@@ -26,8 +29,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-	if (_fuel != nil) {
-		_price.text = [NSString stringWithFormat:@"%@", _fuel.type];
+	if (_fuelPrice != nil) {
+		_price.text = [NSString stringWithFormat:@"%@", _fuelPrice.price];
 		//_type.selectedSegment = _fuel.type;
         //_gasStation
 	}
@@ -50,18 +53,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)saveAction:(id)sender {
+- (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [ADSAppDelegate sharedAppDelegate].managedObjectContext;
 	
-	if (_fuel == nil)
-		_fuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuels" inManagedObjectContext:context];
+	if (_fuelPrice == nil){
+		_fuelPrice = [NSEntityDescription insertNewObjectForEntityForName:@"FuelPrice" inManagedObjectContext:context];
+    }
 	
-	//_fuel.fuelId = [NSNumber numberWithInt:[_fuelIdTextField.text integerValue]];
+	_fuelPrice.price = [NSDecimalNumber numberWithDouble:[_price.text doubleValue]];
 	
-	//_fuel.type = _nameTextField.text;
+	_fuelPrice.fuel.type.type = [NSNumber numberWithInt:[_type selectedSegmentIndex]];
     
-	[context save:NULL];
+    //_fuelPrice.fuel.gasStation.name = [_gasStation selectedRowInComponent:0];
+    
+	//[context save:NULL];
 	
-	[self.navigationController popViewControllerAnimated:YES];}
-
+	//[self.navigationController popViewControllerAnimated:YES];
+}
 @end

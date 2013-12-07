@@ -7,6 +7,8 @@
 //
 
 #import "FuelViewController.h"
+#import "Fuel.h"
+#import "GasStation.h"
 
 @interface FuelViewController ()
 
@@ -27,6 +29,9 @@
 {
     [super viewDidLoad];
 	// self.title = @"Fuel";
+    _priceLabel.text = [_fuelPrice.price stringValue];
+    _gasStationLabel.text = _fuelPrice.fuel.gasStation.name;
+    _addressLabel.text = _fuelPrice.fuel.gasStation.address;
 }
 
 - (void)didReceiveMemoryWarning
