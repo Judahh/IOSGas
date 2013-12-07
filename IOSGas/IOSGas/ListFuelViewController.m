@@ -32,6 +32,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+	
+    NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllFuelPrices"];
+	
+	NSError *error = nil;
+	_fuelPrices = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+	
+	[self.table reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

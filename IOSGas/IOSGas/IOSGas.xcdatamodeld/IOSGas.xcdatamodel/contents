@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Distributor" representedClassName="Distributor" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gasStation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GasStation" inverseName="distributor" inverseEntity="GasStation" syncable="YES"/>
@@ -29,10 +29,10 @@
     <fetchRequest name="FetchRequestForAllFuelTypes" entity="FuelType"/>
     <fetchRequest name="FetchRequestForAllGasStations" entity="GasStation"/>
     <elements>
-        <element name="Distributor" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Fuel" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="FuelPrice" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="FuelType" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="GasStation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Distributor" positionX="-432" positionY="144" width="144" height="75"/>
+        <element name="Fuel" positionX="-2" positionY="144" width="146" height="90"/>
+        <element name="FuelPrice" positionX="216" positionY="144" width="144" height="75"/>
+        <element name="FuelType" positionX="0" positionY="-0" width="144" height="75"/>
+        <element name="GasStation" positionX="-216" positionY="147" width="144" height="105"/>
     </elements>
 </model>

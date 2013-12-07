@@ -10,6 +10,7 @@
 #import "GasStation.h"
 #import "GasStationCell.h"
 #import "GasStationViewController.h"
+#import "ADSAppDelegate.h"
 
 @interface ListGasStationViewController ()
 
@@ -26,6 +27,18 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+	
+    NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllGasStations"];
+	
+	NSError *error = nil;
+	_gasStations = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+	
+	[self.table reloadData];
 }
 
 - (void)viewDidLoad
