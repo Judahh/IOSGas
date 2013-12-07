@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListGasStationViewController : UIViewController
+@interface ListGasStationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @end

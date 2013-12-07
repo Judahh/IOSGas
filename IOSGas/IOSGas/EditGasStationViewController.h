@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface EditGasStationViewController : UIViewController
+@interface EditGasStationViewController : UIViewController 
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *distributorSegmentedControl;
+@property (weak, nonatomic) IBOutlet MKMapView *addressMap;
 
 @end

@@ -36,6 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if([_price.text isEqual:@""]){
+        self.title= @"New Fuel";
+    }else{
+        self.title= @"Edit Fuel";
+    }
 	// Do any additional setup after loading the view.
 }
 

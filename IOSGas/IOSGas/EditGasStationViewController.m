@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if([_nameTextField.text isEqual:@""]){
+        self.title= @"New Gas Station";
+    }else{
+        self.title= @"Edit Gas Station";
+    }
 	// Do any additional setup after loading the view.
 }
 

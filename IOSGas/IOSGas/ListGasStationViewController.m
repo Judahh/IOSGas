@@ -7,12 +7,17 @@
 //
 
 #import "ListGasStationViewController.h"
+#import "GasStation.h"
+#import "GasStationCell.h"
+#import "GasStationViewController.h"
 
 @interface ListGasStationViewController ()
 
 @end
 
-@implementation ListGasStationViewController
+@implementation ListGasStationViewController{
+	NSArray *_gasStations;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,4 +41,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return _gasStations.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	GasStation *gasStation = [_gasStations objectAtIndex:indexPath.row];
+	
+    GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DEFAULT" forIndexPath:indexPath];
+	
+	cell.nameLabel.text = gasStation.name;
+    return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"goToGasStationInformation"]) {
+		UITableViewCell *cell = sender;
+		NSIndexPath *indexPath = [self.table indexPathForCell:cell];
+		
+		GasStation *gasStation = [_gasStations objectAtIndex:indexPath.row];
+		
+		GasStationViewController *ctrl = segue.destinationViewController;
+		ctrl.gasStation = gasStation;
+	}
+}
 @end
