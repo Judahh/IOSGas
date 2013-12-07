@@ -122,13 +122,14 @@
                     <navigationItem key="navigationItem" title="Fuel Information" id="Dok-sw-SG0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="JmU-06-5Io">
                             <connections>
-                                <segue destination="z4y-1m-Rxn" kind="push" id="ifI-U8-lLG"/>
+                                <segue destination="z4y-1m-Rxn" kind="push" identifier="goToEditFuel" id="ifI-U8-lLG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="LgJ-j1-QDW" id="g3k-PJ-Oa1"/>
                         <outlet property="gasStationLabel" destination="g6j-2Z-OH9" id="hb8-um-4sM"/>
+                        <outlet property="map" destination="sr8-X4-z6E" id="p9p-zP-e4x"/>
                         <outlet property="priceLabel" destination="3zF-om-heC" id="mdb-7V-NUU"/>
                     </connections>
                 </viewController>
@@ -176,7 +177,7 @@
                     <navigationItem key="navigationItem" title="Gas Station Information" id="u6C-e9-yX0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="kTn-ZL-Of2">
                             <connections>
-                                <segue destination="8Of-kD-8Y3" kind="push" id="3Qs-cD-YnQ"/>
+                                <segue destination="8Of-kD-8Y3" kind="push" identifier="goToEditGasStation" id="3Qs-cD-YnQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -234,7 +235,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Gas Station" id="9EO-fx-fPA">
-                        <barButtonItem key="rightBarButtonItem" image="save.png" id="IYd-W4-uEK"/>
+                        <barButtonItem key="rightBarButtonItem" image="save.png" id="IYd-W4-uEK">
+                            <connections>
+                                <action selector="save:" destination="8Of-kD-8Y3" id="02x-hW-vgo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressMap" destination="UFn-t4-Cud" id="OuG-QE-mTB"/>
@@ -411,7 +416,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3Qs-cD-YnQ"/>
         <segue reference="ifI-U8-lLG"/>
+        <segue reference="3Qs-cD-YnQ"/>
     </inferredMetricsTieBreakers>
 </document>

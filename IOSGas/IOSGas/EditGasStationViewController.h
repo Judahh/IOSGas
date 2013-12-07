@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "GasStation.h"
 
 @interface EditGasStationViewController : UIViewController 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *distributorSegmentedControl;
 @property (weak, nonatomic) IBOutlet MKMapView *addressMap;
+@property (nonatomic, strong) GasStation *gasStation;
+- (IBAction)save:(id)sender;
+
 
 @end

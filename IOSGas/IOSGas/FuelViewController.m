@@ -9,6 +9,7 @@
 #import "FuelViewController.h"
 #import "Fuel.h"
 #import "GasStation.h"
+#import "EditFuelViewController.h"
 
 @interface FuelViewController ()
 
@@ -38,6 +39,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"goToEditFuel"]) {
+		EditFuelViewController *ctrl = segue.destinationViewController;
+		ctrl.fuelPrice = _fuelPrice;
+	}
 }
 
 @end

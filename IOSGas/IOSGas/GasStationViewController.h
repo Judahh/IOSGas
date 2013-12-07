@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *distributorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
--(CLLocationCoordinate2D) getLocationFromAddressString:(NSString*) addressString;
+//-(CLLocationCoordinate2D) getLocationFromAddressString:(NSString*) addressString;
 @end

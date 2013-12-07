@@ -39,11 +39,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if([_price.text isEqual:@""]){
+    if(_fuelPrice == nil){
         self.title= @"New Fuel";
     }else{
         self.title= @"Edit Fuel";
     }
+    _price.text = [_fuelPrice.price stringValue];
+    //_type.selectedSegmentIndex = _fuelPrice.fuel.type.type;
+    //[_gasStation selectedRowInComponent:0]= _fuelPrice.fuel.gasStation.name;
 	// Do any additional setup after loading the view.
 }
 
@@ -60,14 +63,14 @@
 		_fuelPrice = [NSEntityDescription insertNewObjectForEntityForName:@"FuelPrice" inManagedObjectContext:context];
     }
 	
-	_fuelPrice.price = [NSDecimalNumber numberWithDouble:[_price.text doubleValue]];
+	//_fuelPrice.price = [NSDecimalNumber numberWithDouble:[_price.text doubleValue]];
 	
 	_fuelPrice.fuel.type.type = [NSNumber numberWithInt:[_type selectedSegmentIndex]];
     
     //_fuelPrice.fuel.gasStation.name = [_gasStation selectedRowInComponent:0];
     
-	//[context save:NULL];
+	[context save:NULL];
 	
-	//[self.navigationController popViewControllerAnimated:YES];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 @end
