@@ -19,11 +19,6 @@
 		F7107B41185158B000B3B764 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = F7107B40185158B000B3B764 /* save.png */; };
 		F7475C621852484B003908E6 /* UIFirstTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C611852484B003908E6 /* UIFirstTabBarController.m */; };
 		F7475C6F18524BDE003908E6 /* FuelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C6E18524BDE003908E6 /* FuelCell.m */; };
-		F7475C93185255DA003908E6 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C92185255DA003908E6 /* Fuel.m */; };
-		F7475C96185255DB003908E6 /* GasStation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C95185255DB003908E6 /* GasStation.m */; };
-		F7475C99185255DB003908E6 /* FuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C98185255DB003908E6 /* FuelType.m */; };
-		F7475C9C185255DB003908E6 /* FuelPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C9B185255DB003908E6 /* FuelPrice.m */; };
-		F7475C9F185255DB003908E6 /* Distributor.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C9E185255DB003908E6 /* Distributor.m */; };
 		F7475CA218526C9B003908E6 /* GasStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475CA118526C9B003908E6 /* GasStationCell.m */; };
 		F7475CA418527029003908E6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7475CA318527029003908E6 /* MapKit.framework */; };
 		F7475CA61852707A003908E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7475CA51852707A003908E6 /* CoreLocation.framework */; };
@@ -48,6 +43,11 @@
 		F7C5EE12184F9876009FD275 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7C5EE10184F9876009FD275 /* InfoPlist.strings */; };
 		F7C5EE14184F9876009FD275 /* IOSGasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5EE13184F9876009FD275 /* IOSGasTests.m */; };
 		F7C5EE1E184F9BBA009FD275 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7C5EE1D184F9BBA009FD275 /* Storyboard.storyboard */; };
+		F7CD1A701853B5DA004B1B73 /* Fuel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CD1A6F1853B5DA004B1B73 /* Fuel.m */; };
+		F7CD1A731853B5DA004B1B73 /* FuelPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CD1A721853B5DA004B1B73 /* FuelPrice.m */; };
+		F7CD1A761853B5DA004B1B73 /* GasStation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CD1A751853B5DA004B1B73 /* GasStation.m */; };
+		F7CD1A791853B5DA004B1B73 /* FuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CD1A781853B5DA004B1B73 /* FuelType.m */; };
+		F7CD1A7C1853B5DA004B1B73 /* Distributor.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CD1A7B1853B5DA004B1B73 /* Distributor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,16 +76,6 @@
 		F7475C611852484B003908E6 /* UIFirstTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFirstTabBarController.m; sourceTree = "<group>"; };
 		F7475C6D18524BDE003908E6 /* FuelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelCell.h; sourceTree = "<group>"; };
 		F7475C6E18524BDE003908E6 /* FuelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelCell.m; sourceTree = "<group>"; };
-		F7475C91185255DA003908E6 /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuel.h; sourceTree = "<group>"; };
-		F7475C92185255DA003908E6 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
-		F7475C94185255DB003908E6 /* GasStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GasStation.h; sourceTree = "<group>"; };
-		F7475C95185255DB003908E6 /* GasStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GasStation.m; sourceTree = "<group>"; };
-		F7475C97185255DB003908E6 /* FuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelType.h; sourceTree = "<group>"; };
-		F7475C98185255DB003908E6 /* FuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelType.m; sourceTree = "<group>"; };
-		F7475C9A185255DB003908E6 /* FuelPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelPrice.h; sourceTree = "<group>"; };
-		F7475C9B185255DB003908E6 /* FuelPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelPrice.m; sourceTree = "<group>"; };
-		F7475C9D185255DB003908E6 /* Distributor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Distributor.h; sourceTree = "<group>"; };
-		F7475C9E185255DB003908E6 /* Distributor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Distributor.m; sourceTree = "<group>"; };
 		F7475CA018526C9B003908E6 /* GasStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GasStationCell.h; sourceTree = "<group>"; };
 		F7475CA118526C9B003908E6 /* GasStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GasStationCell.m; sourceTree = "<group>"; };
 		F7475CA318527029003908E6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -119,6 +109,16 @@
 		F7C5EE11184F9876009FD275 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7C5EE13184F9876009FD275 /* IOSGasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSGasTests.m; sourceTree = "<group>"; };
 		F7C5EE1D184F9BBA009FD275 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		F7CD1A6E1853B5DA004B1B73 /* Fuel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuel.h; sourceTree = "<group>"; };
+		F7CD1A6F1853B5DA004B1B73 /* Fuel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fuel.m; sourceTree = "<group>"; };
+		F7CD1A711853B5DA004B1B73 /* FuelPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelPrice.h; sourceTree = "<group>"; };
+		F7CD1A721853B5DA004B1B73 /* FuelPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelPrice.m; sourceTree = "<group>"; };
+		F7CD1A741853B5DA004B1B73 /* GasStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GasStation.h; sourceTree = "<group>"; };
+		F7CD1A751853B5DA004B1B73 /* GasStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GasStation.m; sourceTree = "<group>"; };
+		F7CD1A771853B5DA004B1B73 /* FuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelType.h; sourceTree = "<group>"; };
+		F7CD1A781853B5DA004B1B73 /* FuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuelType.m; sourceTree = "<group>"; };
+		F7CD1A7A1853B5DA004B1B73 /* Distributor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Distributor.h; sourceTree = "<group>"; };
+		F7CD1A7B1853B5DA004B1B73 /* Distributor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Distributor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,16 +218,16 @@
 		F749E7DA1851014400926F58 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				F7475C9D185255DB003908E6 /* Distributor.h */,
-				F7475C9E185255DB003908E6 /* Distributor.m */,
-				F7475C9A185255DB003908E6 /* FuelPrice.h */,
-				F7475C9B185255DB003908E6 /* FuelPrice.m */,
-				F7475C97185255DB003908E6 /* FuelType.h */,
-				F7475C98185255DB003908E6 /* FuelType.m */,
-				F7475C94185255DB003908E6 /* GasStation.h */,
-				F7475C95185255DB003908E6 /* GasStation.m */,
-				F7475C91185255DA003908E6 /* Fuel.h */,
-				F7475C92185255DA003908E6 /* Fuel.m */,
+				F7CD1A7A1853B5DA004B1B73 /* Distributor.h */,
+				F7CD1A7B1853B5DA004B1B73 /* Distributor.m */,
+				F7CD1A771853B5DA004B1B73 /* FuelType.h */,
+				F7CD1A781853B5DA004B1B73 /* FuelType.m */,
+				F7CD1A741853B5DA004B1B73 /* GasStation.h */,
+				F7CD1A751853B5DA004B1B73 /* GasStation.m */,
+				F7CD1A711853B5DA004B1B73 /* FuelPrice.h */,
+				F7CD1A721853B5DA004B1B73 /* FuelPrice.m */,
+				F7CD1A6E1853B5DA004B1B73 /* Fuel.h */,
+				F7CD1A6F1853B5DA004B1B73 /* Fuel.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -415,21 +415,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CD1A701853B5DA004B1B73 /* Fuel.m in Sources */,
 				F7C5EDF7184F9876009FD275 /* main.m in Sources */,
-				F7475C99185255DB003908E6 /* FuelType.m in Sources */,
 				F749E7D91850F7AA00926F58 /* ListGasStationViewController.m in Sources */,
-				F7475C9F185255DB003908E6 /* Distributor.m in Sources */,
+				F7CD1A791853B5DA004B1B73 /* FuelType.m in Sources */,
 				F749E7D31850EF9400926F58 /* EditGasStationViewController.m in Sources */,
 				F749E7D61850F77600926F58 /* ListFuelViewController.m in Sources */,
 				F7C5EDFB184F9876009FD275 /* ADSAppDelegate.m in Sources */,
+				F7CD1A7C1853B5DA004B1B73 /* Distributor.m in Sources */,
 				F7475C621852484B003908E6 /* UIFirstTabBarController.m in Sources */,
 				A2790D9918501A340014EE80 /* FuelViewController.m in Sources */,
 				F7C5EDFE184F9876009FD275 /* IOSGas.xcdatamodeld in Sources */,
 				F749E7CD1850EEB600926F58 /* EditFuelViewController.m in Sources */,
-				F7475C93185255DA003908E6 /* Fuel.m in Sources */,
-				F7475C96185255DB003908E6 /* GasStation.m in Sources */,
 				F749E7D01850EF4E00926F58 /* GasStationViewController.m in Sources */,
-				F7475C9C185255DB003908E6 /* FuelPrice.m in Sources */,
+				F7CD1A731853B5DA004B1B73 /* FuelPrice.m in Sources */,
+				F7CD1A761853B5DA004B1B73 /* GasStation.m in Sources */,
 				F7475CA218526C9B003908E6 /* GasStationCell.m in Sources */,
 				F7475C6F18524BDE003908E6 /* FuelCell.m in Sources */,
 			);

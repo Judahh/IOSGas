@@ -15,7 +15,7 @@
     </entity>
     <entity name="FuelType" representedClassName="FuelType" syncable="YES">
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="fuel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fuel" inverseName="type" inverseEntity="Fuel" syncable="YES"/>
+        <relationship name="fuel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fuel" inverseName="type" inverseEntity="Fuel" syncable="YES"/>
     </entity>
     <entity name="GasStation" representedClassName="GasStation" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,10 +29,10 @@
     <fetchRequest name="FetchRequestForAllFuelTypes" entity="FuelType"/>
     <fetchRequest name="FetchRequestForAllGasStations" entity="GasStation"/>
     <elements>
-        <element name="Distributor" positionX="144" positionY="-573" width="144" height="60"/>
-        <element name="Fuel" positionX="-72" positionY="-360" width="144" height="88"/>
-        <element name="FuelPrice" positionX="-288" positionY="-360" width="146" height="73"/>
-        <element name="FuelType" positionX="144" positionY="-360" width="144" height="73"/>
-        <element name="GasStation" positionX="-72" positionY="-576" width="144" height="88"/>
+        <element name="Distributor" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Fuel" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FuelPrice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FuelType" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GasStation" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
