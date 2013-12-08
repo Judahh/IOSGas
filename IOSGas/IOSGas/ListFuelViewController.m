@@ -81,7 +81,12 @@
 {
 	FuelPrice *fuelPrice = [_fuelPrices objectAtIndex:indexPath.row];
 	
-    FuelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FuelCell" forIndexPath:indexPath];
+    FuelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FuelCell"];
+    
+    if(cell ==nil){
+        cell = [[FuelCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FuelCell"];
+    }
+    
 	
 	cell.priceLabel.text = [fuelPrice.price stringValue];
     cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
@@ -101,6 +106,12 @@
             cell.fuelTypeLabel.textColor=[UIColor redColor];
             break;
     }
+//    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Aviso!"
+//                                                     message:@"Sem acesso ao servidor, por gentileza consulte o baitinga do suporte"
+//                                                  delegate:self
+//                                         cancelButtonTitle:@"OK"
+//                                         otherButtonTitles:nil, nil];
+//  [alerta show];
     
     return cell;
 }
