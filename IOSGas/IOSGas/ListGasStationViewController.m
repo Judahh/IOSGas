@@ -20,6 +20,8 @@
 	NSArray *_gasStations;
 }
 
+@synthesize table; //.m
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,6 +40,13 @@
 	NSError *error = nil;
 	_gasStations = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
 	
+    for (int i=0; i<[_gasStations count]; i++) {
+        GasStation *tempGasStation = [_gasStations objectAtIndex:i];
+        NSLog(@"GAS=%@",tempGasStation.name);
+    }
+    
+    
+    
 	[self.table reloadData];
 }
 
@@ -45,6 +54,9 @@
 {
     [super viewDidLoad];
     self.title = @"Gas Station";
+    self.table.dataSource = self;
+    self.table.delegate = self;
+    [self.table registerClass:[GasStationCell class] forCellReuseIdentifier:@"GasStationCell"];
 	// Do any additional setup after loading the view.
 }
 
@@ -66,8 +78,12 @@
 {
 	GasStation *gasStation = [_gasStations objectAtIndex:indexPath.row];
 	
-    GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DEFAULT" forIndexPath:indexPath];
+    GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GasStationCell" forIndexPath:indexPath];
 	
+    if (cell == nil){
+        cell = [[GasStationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"GasStationCell"];
+    }
+        
 	cell.nameLabel.text = gasStation.name;
     return cell;
 }

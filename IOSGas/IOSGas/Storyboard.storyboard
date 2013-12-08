@@ -355,7 +355,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uXo-TM-Djg" customClass="GasStationCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GasStationCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uXo-TM-Djg" customClass="GasStationCell">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uXo-TM-Djg" id="h2M-DL-t1l">

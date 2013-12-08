@@ -49,18 +49,62 @@
 	
 	if (_gasStation == nil){
 		_gasStation = [NSEntityDescription insertNewObjectForEntityForName:@"GasStation" inManagedObjectContext:context];
+    }else{
+        NSMutableSet *gasStations = [[NSMutableSet alloc] initWithSet:_gasStation.distributor.gasStation];
+        NSArray *gasStationArray = [gasStations allObjects];
+        for (int i=0; i<[gasStationArray count]; i++) {
+            GasStation *gasStationTemp=[gasStationArray objectAtIndex:i];
+            if(gasStationTemp.name==_gasStation.name){
+                [gasStations removeObject:gasStationTemp];
+            }else{
+                gasStationTemp=nil;
+            }
+        }
     }
 	
 	_gasStation.name = _nameTextField.text;
     _gasStation.address = _addressTextField.text;
     
-    if (_gasStation.distributor == nil){
-		_gasStation.distributor = [NSEntityDescription insertNewObjectForEntityForName:@"Distributor" inManagedObjectContext:context];
+    NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllDistributors"];
+	
+	NSError *error = nil;
+	NSArray *distributors = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+    
+    Distributor *distributor;
+    
+    for (int i=0; i<[distributors count]; i++) {
+        distributor=[distributors objectAtIndex:i];
+        
+        NSLog(@"Distributor Name:%@",distributor.name);
+        
+        if(distributor.name==[_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]]){
+            i=[distributors count];
+        }else{
+            distributor=nil;
+        }
     }
     
-    _gasStation.distributor.name = [_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]];
+    if (distributor == nil){
+		distributor = [NSEntityDescription insertNewObjectForEntityForName:@"Distributor" inManagedObjectContext:context];
+        
+        distributor.name = [_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]];
+    }
     
-    NSLog(@"Valor:%@",[_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]]);
+    NSMutableSet *tempDistibutorGasStation = [[NSMutableSet alloc] initWithSet:distributor.gasStation];
+    
+    [tempDistibutorGasStation addObject:_gasStation];
+    
+    distributor.gasStation = tempDistibutorGasStation;
+    
+    _gasStation.distributor = distributor;
+    
+    
+    
+    NSLog(@"Name:%@",_gasStation.name);
+    
+    NSLog(@"Address:%@",_gasStation.address);
+    
+    NSLog(@"Distributor:%@",_gasStation.distributor.name);
     
 	[context save:NULL];
 	
