@@ -17,6 +17,11 @@
 		F70B4783184FEBC700CF85DB /* Gas.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477B184FEBC700CF85DB /* Gas.png */; };
 		F70B4784184FEBC700CF85DB /* GasStation.png in Resources */ = {isa = PBXBuildFile; fileRef = F70B477C184FEBC700CF85DB /* GasStation.png */; };
 		F7107B41185158B000B3B764 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = F7107B40185158B000B3B764 /* save.png */; };
+		F737AC61185524F500CB8C00 /* Distributor.png in Resources */ = {isa = PBXBuildFile; fileRef = F737AC5D185524F500CB8C00 /* Distributor.png */; };
+		F737AC62185524F500CB8C00 /* Distributor1.png in Resources */ = {isa = PBXBuildFile; fileRef = F737AC5E185524F500CB8C00 /* Distributor1.png */; };
+		F737AC63185524F500CB8C00 /* Distributor2.png in Resources */ = {isa = PBXBuildFile; fileRef = F737AC5F185524F500CB8C00 /* Distributor2.png */; };
+		F737AC64185524F500CB8C00 /* Type.png in Resources */ = {isa = PBXBuildFile; fileRef = F737AC60185524F500CB8C00 /* Type.png */; };
+		F737AC66185525AA00CB8C00 /* OldGas.png in Resources */ = {isa = PBXBuildFile; fileRef = F737AC65185525AA00CB8C00 /* OldGas.png */; };
 		F7475C621852484B003908E6 /* UIFirstTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C611852484B003908E6 /* UIFirstTabBarController.m */; };
 		F7475C6F18524BDE003908E6 /* FuelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475C6E18524BDE003908E6 /* FuelCell.m */; };
 		F7475CA218526C9B003908E6 /* GasStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7475CA118526C9B003908E6 /* GasStationCell.m */; };
@@ -72,6 +77,11 @@
 		F70B477B184FEBC700CF85DB /* Gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gas.png; sourceTree = "<group>"; };
 		F70B477C184FEBC700CF85DB /* GasStation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GasStation.png; sourceTree = "<group>"; };
 		F7107B40185158B000B3B764 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		F737AC5D185524F500CB8C00 /* Distributor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Distributor.png; sourceTree = "<group>"; };
+		F737AC5E185524F500CB8C00 /* Distributor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Distributor1.png; sourceTree = "<group>"; };
+		F737AC5F185524F500CB8C00 /* Distributor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Distributor2.png; sourceTree = "<group>"; };
+		F737AC60185524F500CB8C00 /* Type.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Type.png; sourceTree = "<group>"; };
+		F737AC65185525AA00CB8C00 /* OldGas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OldGas.png; sourceTree = "<group>"; };
 		F7475C601852484B003908E6 /* UIFirstTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFirstTabBarController.h; sourceTree = "<group>"; };
 		F7475C611852484B003908E6 /* UIFirstTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFirstTabBarController.m; sourceTree = "<group>"; };
 		F7475C6D18524BDE003908E6 /* FuelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelCell.h; sourceTree = "<group>"; };
@@ -186,6 +196,11 @@
 				F70B4774184FEBC700CF85DB /* + */,
 				F70B4778184FEBC700CF85DB /* edit.png */,
 				F7107B40185158B000B3B764 /* save.png */,
+				F737AC5D185524F500CB8C00 /* Distributor.png */,
+				F737AC65185525AA00CB8C00 /* OldGas.png */,
+				F737AC5E185524F500CB8C00 /* Distributor1.png */,
+				F737AC5F185524F500CB8C00 /* Distributor2.png */,
+				F737AC60185524F500CB8C00 /* Type.png */,
 				F70B4779184FEBC700CF85DB /* edit1.png */,
 				F70B477A184FEBC700CF85DB /* edit2.png */,
 				F70B477B184FEBC700CF85DB /* Gas.png */,
@@ -386,15 +401,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70B4780184FEBC700CF85DB /* edit.png in Resources */,
+				F737AC61185524F500CB8C00 /* Distributor.png in Resources */,
 				F70B477D184FEBC700CF85DB /* preview-glyphish5.png in Resources */,
 				F7107B41185158B000B3B764 /* save.png in Resources */,
+				F737AC63185524F500CB8C00 /* Distributor2.png in Resources */,
 				F7C5EDF5184F9876009FD275 /* InfoPlist.strings in Resources */,
 				F70B4783184FEBC700CF85DB /* Gas.png in Resources */,
+				F737AC66185525AA00CB8C00 /* OldGas.png in Resources */,
 				F70B4781184FEBC700CF85DB /* edit1.png in Resources */,
 				F70B477F184FEBC700CF85DB /* tab-bar-icons-ios7.png in Resources */,
 				F70B4782184FEBC700CF85DB /* edit2.png in Resources */,
+				F737AC62185524F500CB8C00 /* Distributor1.png in Resources */,
 				F7C5EE00184F9876009FD275 /* Images.xcassets in Resources */,
 				F7C5EE1E184F9BBA009FD275 /* Storyboard.storyboard in Resources */,
+				F737AC64185524F500CB8C00 /* Type.png in Resources */,
 				F70B4784184FEBC700CF85DB /* GasStation.png in Resources */,
 				F70B477E184FEBC700CF85DB /* rebound.png in Resources */,
 			);
