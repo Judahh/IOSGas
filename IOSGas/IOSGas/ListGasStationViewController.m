@@ -82,9 +82,11 @@
 	
     if (cell == nil){
         cell = [[GasStationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"GasStationCell"];
+        NSLog(@"Cell=Null");
     }
         
 	cell.nameLabel.text = gasStation.name;
+    NSLog(@"GASLabel=%@",cell.nameLabel.text);
     return cell;
 }
 
