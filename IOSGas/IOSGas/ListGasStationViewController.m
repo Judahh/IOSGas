@@ -86,6 +86,7 @@
     }
         
 	cell.nameLabel.text = gasStation.name;
+    [cell reloadInputViews];
     NSLog(@"GASLabel=%@",cell.nameLabel.text);
     return cell;
 }
