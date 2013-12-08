@@ -51,15 +51,20 @@
 		_gasStation = [NSEntityDescription insertNewObjectForEntityForName:@"GasStation" inManagedObjectContext:context];
     }else{
         NSMutableSet *gasStations = [[NSMutableSet alloc] initWithSet:_gasStation.distributor.gasStation];
+        
         NSArray *gasStationArray = [gasStations allObjects];
+        
         for (int i=0; i<[gasStationArray count]; i++) {
             GasStation *gasStationTemp=[gasStationArray objectAtIndex:i];
-            if(gasStationTemp.name==_gasStation.name){
+            if(gasStationTemp==_gasStation){
                 [gasStations removeObject:gasStationTemp];
             }else{
                 gasStationTemp=nil;
             }
         }
+        
+        _gasStation.distributor.gasStation = [[NSSet alloc] initWithSet:gasStations];
+
     }
 	
 	_gasStation.name = _nameTextField.text;

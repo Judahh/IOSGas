@@ -12,7 +12,7 @@
 @interface EditFuelViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *price;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *type;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *type;
 //@property (strong, nonatomic) IBOutlet UIPickerView *gasStation;
 @property (strong, nonatomic) IBOutlet UIPickerView *gasStation;
 @property (strong, nonatomic) NSArray *gasStationArray;

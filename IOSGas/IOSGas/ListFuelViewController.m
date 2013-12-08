@@ -23,6 +23,8 @@
 	NSArray *_fuelPrices;
 }
 
+@synthesize table; //.m
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,6 +50,9 @@
 {
     [super viewDidLoad];
     self.title = @"Fuel";
+    self.table.dataSource = self;
+    self.table.delegate = self;
+    [self.table registerClass:[FuelCell class] forCellReuseIdentifier:@"FuelCell"];
 	// Do any additional setup after loading the view.
 }
 
@@ -69,7 +74,7 @@
 {
 	FuelPrice *fuelPrice = [_fuelPrices objectAtIndex:indexPath.row];
 	
-    FuelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DEFAULT" forIndexPath:indexPath];
+    FuelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FuelCell" forIndexPath:indexPath];
 	
 	cell.priceLabel.text = [fuelPrice.price stringValue];
     cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
