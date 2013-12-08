@@ -194,11 +194,11 @@
     
     _fuelPrice.fuel.gasStation = gasStationTemp;
     
-    //NSLog(@"Price:%@",_fuelPrice.price);
+    NSLog(@"Price:%@",_fuelPrice.price);
     
     NSLog(@"Type:%@",_fuelPrice.fuel.type.type);
     
-    NSLog(@"GasStation:%@",_fuelPrice.fuel.gasStation);
+    NSLog(@"GasStation:%@",_fuelPrice.fuel.gasStation.name);
     
 	[context save:NULL];
 	

@@ -42,7 +42,14 @@
 	
 	NSError *error = nil;
 	_fuelPrices = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
-	
+    
+    for (int i=0; i<[_fuelPrices count]; i++) {
+        FuelPrice *tempFuelPrice = [_fuelPrices objectAtIndex:i];
+        NSLog(@"Price=%@",tempFuelPrice.price);
+        NSLog(@"Type=%@",tempFuelPrice.fuel.type.type);
+        NSLog(@"GasStation=%@",tempFuelPrice.fuel.gasStation.name);
+    }
+    
 	[self.table reloadData];
 }
 
