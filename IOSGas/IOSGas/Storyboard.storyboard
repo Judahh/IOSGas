@@ -295,7 +295,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="gasStation" destination="R0H-CU-AOQ" id="FRU-AC-Usx"/>
+                        <outlet property="gasStation" destination="R0H-CU-AOQ" id="9vF-Re-hfD"/>
                         <outlet property="price" destination="nL7-N2-jlr" id="WHb-Qx-Jd1"/>
                         <outlet property="type" destination="gnm-71-Dux" id="FND-BW-a2m"/>
                     </connections>

@@ -53,7 +53,14 @@
 	
 	_gasStation.name = _nameTextField.text;
     _gasStation.address = _addressTextField.text;
-    //_distributorSegmentedControl.selectedSegmentIndex= _gasStation.distributor.name;
+    
+    if (_gasStation.distributor == nil){
+		_gasStation.distributor = [NSEntityDescription insertNewObjectForEntityForName:@"Distributor" inManagedObjectContext:context];
+    }
+    
+    _gasStation.distributor.name = [_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]];
+    
+    NSLog(@"Valor:%@",[_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]]);
     
 	[context save:NULL];
 	
