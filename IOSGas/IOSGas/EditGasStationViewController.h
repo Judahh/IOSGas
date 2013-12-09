@@ -11,12 +11,12 @@
 #import "GasStation.h"
 
 @interface EditGasStationViewController : UIViewController 
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *distributorSegmentedControl;
-@property (weak, nonatomic) IBOutlet MKMapView *addressMap;
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *addressTextField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *distributorSegmentedControl;
+@property (strong, nonatomic) IBOutlet MKMapView *addressMap;
 @property (nonatomic, strong) GasStation *gasStation;
 - (IBAction)save:(id)sender;
 
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField;
 @end

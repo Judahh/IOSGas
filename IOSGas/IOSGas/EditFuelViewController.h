@@ -11,13 +11,13 @@
 
 @interface EditFuelViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *price;
+@property (strong, nonatomic) IBOutlet UITextField *price;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *type;
 //@property (strong, nonatomic) IBOutlet UIPickerView *gasStation;
 @property (strong, nonatomic) IBOutlet UIPickerView *gasStation;
 @property (strong, nonatomic) NSArray *gasStationArray;
 
 - (IBAction)save:(id)sender;
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField;
 @property FuelPrice *fuelPrice;
 @end

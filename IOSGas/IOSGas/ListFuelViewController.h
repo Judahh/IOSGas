@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListFuelViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ListFuelViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSMutableArray *fuelPrices;
 @end

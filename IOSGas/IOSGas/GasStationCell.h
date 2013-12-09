@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GasStationCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+
+//-(void)nameLabel:(NSString *) nameLabel;
 
 @end

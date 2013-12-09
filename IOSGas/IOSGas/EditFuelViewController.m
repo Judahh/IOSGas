@@ -21,7 +21,7 @@
 
 @implementation EditFuelViewController
 
-@synthesize gasStation; //.m
+@synthesize gasStation, price, type, gasStationArray, fuelPrice; //.m
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,8 +33,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-	if (_fuelPrice != nil) {
-		_price.text = [NSString stringWithFormat:@"%@", _fuelPrice.price];
+	if (fuelPrice != nil) {
+		price.text = [NSString stringWithFormat:@"%@", fuelPrice.price];
 		//_type.selectedSegment = _fuel.type;
         //_gasStation
 	}
@@ -53,14 +53,14 @@
     
     //self.gasStationArray  = [[NSArray alloc]         initWithObjects:@"Blue",@"Green",@"Orange",@"Purple",@"Red",@"Yellow" , nil];
     
-	_gasStationArray = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+	gasStationArray = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
     
-    if(_fuelPrice == nil){
+    if(fuelPrice == nil){
         self.title= @"New Fuel";
     }else{
         self.title= @"Edit Fuel";
     }
-    _price.text = [_fuelPrice.price stringValue];
+    price.text = [fuelPrice.price stringValue];
     //_type.selectedSegmentIndex = _fuelPrice.fuel.type.type;
     //[_gasStation selectedRowInComponent:0]= _fuelPrice.fuel.gasStation.name;
 	// Do any additional setup after loading the view.
@@ -75,51 +75,51 @@
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [ADSAppDelegate sharedAppDelegate].managedObjectContext;
     
-	if (_fuelPrice == nil){
+	if (fuelPrice == nil){
         
-		_fuelPrice = [NSEntityDescription insertNewObjectForEntityForName:@"FuelPrice" inManagedObjectContext:context];
+		fuelPrice = [NSEntityDescription insertNewObjectForEntityForName:@"FuelPrice" inManagedObjectContext:context];
         
         Fuel *tempFuel = [NSEntityDescription insertNewObjectForEntityForName:@"Fuel" inManagedObjectContext:context];
         
         //_fuelPrice = [[FuelPrice alloc] init];
         
         
-        tempFuel.price=_fuelPrice;
+        tempFuel.price=fuelPrice;
         
-        _fuelPrice.fuel=tempFuel;
+        fuelPrice.fuel=tempFuel;
     }else{
-        NSMutableSet *fuels = [[NSMutableSet alloc] initWithSet:_fuelPrice.fuel.gasStation.fuel];
+        NSMutableSet *fuels = [[NSMutableSet alloc] initWithSet:fuelPrice.fuel.gasStation.fuel];
         
         NSArray *fuelArray = [fuels allObjects];
         
         for (int i=0; i<[fuelArray count]; i++) {
             Fuel *fuelTemp=[fuelArray objectAtIndex:i];
-            if(fuelTemp==_fuelPrice.fuel){
+            if(fuelTemp==fuelPrice.fuel){
                 [fuels removeObject:fuelTemp];
             }else{
                 fuelTemp=nil;
             }
         }
         
-        _fuelPrice.fuel.gasStation.fuel = [[NSSet alloc] initWithSet:fuels];
+        fuelPrice.fuel.gasStation.fuel = [[NSSet alloc] initWithSet:fuels];
         
-        NSMutableSet *fuelTypes = [[NSMutableSet alloc] initWithSet:_fuelPrice.fuel.type.fuel];
+        NSMutableSet *fuelTypes = [[NSMutableSet alloc] initWithSet:fuelPrice.fuel.type.fuel];
         
         NSArray *fuelTypeArray = [fuelTypes allObjects];
         
         for (int i=0; i<[fuelTypeArray count]; i++) {
             FuelType *fuelTypeTemp=[fuelTypeArray objectAtIndex:i];
-            if(fuelTypeTemp==_fuelPrice.fuel.type){
+            if(fuelTypeTemp==fuelPrice.fuel.type){
                 [fuelTypes removeObject:fuelTypeTemp];
             }else{
                 fuelTypeTemp=nil;
             }
         }
         
-        _fuelPrice.fuel.type.fuel = [[NSSet alloc] initWithSet:fuelTypes];
+        fuelPrice.fuel.type.fuel = [[NSSet alloc] initWithSet:fuelTypes];
     }
-	_fuelPrice.price =
-    [NSDecimalNumber numberWithDouble:[_price.text doubleValue]];
+	fuelPrice.price =
+    [NSDecimalNumber numberWithDouble:[price.text doubleValue]];
     
     NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllFuelTypes"];
 	
@@ -133,7 +133,7 @@
         
         NSLog(@"FuelType:%@",fuelTypeTemp.type);
         
-        if([fuelTypeTemp.type integerValue]==[_type selectedSegmentIndex]){
+        if([fuelTypeTemp.type integerValue]==[type selectedSegmentIndex]){
             i=[fueltypes count];
         }else{
             fuelTypeTemp=nil;
@@ -143,16 +143,16 @@
     if (fuelTypeTemp == nil){
 		fuelTypeTemp = [NSEntityDescription insertNewObjectForEntityForName:@"FuelType" inManagedObjectContext:context];
         
-        fuelTypeTemp.type = [NSNumber numberWithInt:[_type selectedSegmentIndex]];
+        fuelTypeTemp.type = [NSNumber numberWithInt:[type selectedSegmentIndex]];
     }
     
     NSMutableSet *tempFuelTypeFuel = [[NSMutableSet alloc] initWithSet:fuelTypeTemp.fuel];
     
-    [tempFuelTypeFuel addObject:_fuelPrice.fuel];
+    [tempFuelTypeFuel addObject:fuelPrice.fuel];
     
     fuelTypeTemp.fuel = tempFuelTypeFuel;
     
-    _fuelPrice.fuel.type = fuelTypeTemp;
+    fuelPrice.fuel.type = fuelTypeTemp;
     
     request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllGasStations"];
 	
@@ -188,17 +188,17 @@
     
     NSMutableSet *tempGasStationFuel = [[NSMutableSet alloc] initWithSet:gasStationTemp.fuel];
     
-    [tempGasStationFuel addObject:_fuelPrice.fuel];
+    [tempGasStationFuel addObject:fuelPrice.fuel];
     
     gasStationTemp.fuel = tempGasStationFuel;
     
-    _fuelPrice.fuel.gasStation = gasStationTemp;
+    fuelPrice.fuel.gasStation = gasStationTemp;
     
-    NSLog(@"Price:%@",_fuelPrice.price);
+    NSLog(@"Price:%@",fuelPrice.price);
     
-    NSLog(@"Type:%@",_fuelPrice.fuel.type.type);
+    NSLog(@"Type:%@",fuelPrice.fuel.type.type);
     
-    NSLog(@"GasStation:%@",_fuelPrice.fuel.gasStation.name);
+    NSLog(@"GasStation:%@",fuelPrice.fuel.gasStation.name);
     
 	[context save:NULL];
 	
@@ -214,7 +214,7 @@
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
 {
-    return [_gasStationArray count];
+    return [gasStationArray count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
@@ -258,5 +258,11 @@
     
 }
 
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == price){
+        [price resignFirstResponder];
+        return YES;
+    }
+    return NO;
+}
 @end

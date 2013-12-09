@@ -30,7 +30,8 @@
 {
     [super viewDidLoad];
 	// self.title = @"Fuel";
-    _priceLabel.text = [_fuelPrice.price stringValue];
+    _priceLabel.text = [NSString stringWithFormat:@"%.2f", [_fuelPrice.price doubleValue]];
+    //@"%f",    _priceLabel.text = [_fuelPrice.price stringValue];
     _gasStationLabel.text = _fuelPrice.fuel.gasStation.name;
     _addressLabel.text = _fuelPrice.fuel.gasStation.address;
 }

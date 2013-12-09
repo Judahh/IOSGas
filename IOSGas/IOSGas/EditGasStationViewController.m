@@ -15,6 +15,8 @@
 
 @implementation EditGasStationViewController
 
+@synthesize nameTextField, addressMap, addressTextField, distributorSegmentedControl, gasStation;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,13 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(_gasStation == nil){
+    if(gasStation == nil){
         self.title= @"New Gas Station";
     }else{
         self.title= @"Edit Gas Station";
     }
-    _nameTextField.text = _gasStation.name;
-    _addressTextField.text = _gasStation.address;
+    nameTextField.text = gasStation.name;
+    addressTextField.text = gasStation.address;
     //_distributorSegmentedControl.selectedSegmentIndex= _gasStation.distributor.name;
 	// Do any additional setup after loading the view.
 }
@@ -47,28 +49,28 @@
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [ADSAppDelegate sharedAppDelegate].managedObjectContext;
 	
-	if (_gasStation == nil){
-		_gasStation = [NSEntityDescription insertNewObjectForEntityForName:@"GasStation" inManagedObjectContext:context];
+	if (gasStation == nil){
+		gasStation = [NSEntityDescription insertNewObjectForEntityForName:@"GasStation" inManagedObjectContext:context];
     }else{
-        NSMutableSet *gasStations = [[NSMutableSet alloc] initWithSet:_gasStation.distributor.gasStation];
+        NSMutableSet *gasStations = [[NSMutableSet alloc] initWithSet:gasStation.distributor.gasStation];
         
         NSArray *gasStationArray = [gasStations allObjects];
         
         for (int i=0; i<[gasStationArray count]; i++) {
             GasStation *gasStationTemp=[gasStationArray objectAtIndex:i];
-            if(gasStationTemp==_gasStation){
+            if(gasStationTemp==gasStation){
                 [gasStations removeObject:gasStationTemp];
             }else{
                 gasStationTemp=nil;
             }
         }
         
-        _gasStation.distributor.gasStation = [[NSSet alloc] initWithSet:gasStations];
+        gasStation.distributor.gasStation = [[NSSet alloc] initWithSet:gasStations];
 
     }
 	
-	_gasStation.name = _nameTextField.text;
-    _gasStation.address = _addressTextField.text;
+	gasStation.name = nameTextField.text;
+    gasStation.address = addressTextField.text;
     
     NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllDistributors"];
 	
@@ -82,7 +84,7 @@
         
         NSLog(@"Distributor Name:%@",distributor.name);
         
-        if(distributor.name==[_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]]){
+        if(distributor.name==[distributorSegmentedControl titleForSegmentAtIndex:[distributorSegmentedControl selectedSegmentIndex]]){
             i=[distributors count];
         }else{
             distributor=nil;
@@ -92,28 +94,40 @@
     if (distributor == nil){
 		distributor = [NSEntityDescription insertNewObjectForEntityForName:@"Distributor" inManagedObjectContext:context];
         
-        distributor.name = [_distributorSegmentedControl titleForSegmentAtIndex:[_distributorSegmentedControl selectedSegmentIndex]];
+        distributor.name = [distributorSegmentedControl titleForSegmentAtIndex:[distributorSegmentedControl selectedSegmentIndex]];
     }
     
     NSMutableSet *tempDistibutorGasStation = [[NSMutableSet alloc] initWithSet:distributor.gasStation];
     
-    [tempDistibutorGasStation addObject:_gasStation];
+    [tempDistibutorGasStation addObject:gasStation];
     
     distributor.gasStation = tempDistibutorGasStation;
     
-    _gasStation.distributor = distributor;
+    gasStation.distributor = distributor;
     
     
     
-    NSLog(@"Name:%@",_gasStation.name);
+    NSLog(@"Name:%@",gasStation.name);
     
-    NSLog(@"Address:%@",_gasStation.address);
+    NSLog(@"Address:%@",gasStation.address);
     
-    NSLog(@"Distributor:%@",_gasStation.distributor.name);
+    NSLog(@"Distributor:%@",gasStation.distributor.name);
     
 	[context save:NULL];
 	
 	[self.navigationController popViewControllerAnimated:YES];
 
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == nameTextField){
+        [addressTextField becomeFirstResponder];
+        return  YES;
+    }else if (textField == addressTextField){
+        [nameTextField resignFirstResponder];
+        return YES;
+    }
+    return NO;
 }
 @end
