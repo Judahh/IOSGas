@@ -16,11 +16,9 @@
 
 @end
 
-@implementation ListGasStationViewController{
-	NSArray *_gasStations;
-}
+@implementation ListGasStationViewController
 
-@synthesize table; //.m
+@synthesize table, gasStations; //.m
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,10 +36,10 @@
     NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllGasStations"];
 	
 	NSError *error = nil;
-	_gasStations = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+	gasStations =[[NSMutableArray alloc] initWithArray:  [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error]];
 	
-    for (int i=0; i<[_gasStations count]; i++) {
-        GasStation *tempGasStation = [_gasStations objectAtIndex:i];
+    for (int i=0; i<[gasStations count]; i++) {
+        GasStation *tempGasStation = [gasStations objectAtIndex:i];
         NSLog(@"GAS=%@",tempGasStation.name);
     }
     
@@ -54,9 +52,10 @@
 {
     [super viewDidLoad];
     self.title = @"Gas Station";
+    [self.table reloadData];
     self.table.dataSource = self;
     self.table.delegate = self;
-    [self.table registerClass:[GasStationCell class] forCellReuseIdentifier:@"GasStationCell"];
+    //[self.table registerClass:[GasStationCell class] forCellReuseIdentifier:@"GasStationCell"];
 	// Do any additional setup after loading the view.
 }
 
@@ -69,25 +68,36 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return _gasStations.count;
+	return gasStations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	GasStation *gasStation = [_gasStations objectAtIndex:indexPath.row];
 	
-    GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GasStationCell" forIndexPath:indexPath];
-	
-    if (cell == nil){
-        cell = [[GasStationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"GasStationCell"];
+    static NSString *CellIdentifier = @"GasStationCell";
+    GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(cell ==nil){
+        cell = [[GasStationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         NSLog(@"Cell=Null");
-    }
-        
+	}
+    
+    GasStation *gasStation = [gasStations objectAtIndex:indexPath.row];
+    
 	cell.nameLabel.text = gasStation.name;
-    [cell reloadInputViews];
+    NSLog(@"GASNAME=%@",gasStation.name);
+    //[cell reloadInputViews];
     NSLog(@"GASLabel=%@",cell.nameLabel.text);
+    
     return cell;
 }
 
@@ -96,7 +106,7 @@
 		UITableViewCell *cell = sender;
 		NSIndexPath *indexPath = [self.table indexPathForCell:cell];
 		
-		GasStation *gasStation = [_gasStations objectAtIndex:indexPath.row];
+		GasStation *gasStation = [gasStations objectAtIndex:indexPath.row];
 		
 		GasStationViewController *ctrl = segue.destinationViewController;
 		ctrl.gasStation = gasStation;

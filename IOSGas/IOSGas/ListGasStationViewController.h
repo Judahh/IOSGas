@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListGasStationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ListGasStationViewController : UIViewController< UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSMutableArray *gasStations;
+
 @end

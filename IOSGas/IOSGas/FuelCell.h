@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FuelCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *gasStationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fuelTypeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *gasStationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fuelTypeLabel;
 
 @end   

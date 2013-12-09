@@ -19,11 +19,9 @@
 
 @end
 
-@implementation ListFuelViewController{
-	NSArray *_fuelPrices;
-}
+@implementation ListFuelViewController
 
-@synthesize table; //.m
+@synthesize table, fuelPrices; //.m
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,10 +39,10 @@
     NSFetchRequest *request = [[ADSAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:@"FetchRequestForAllFuelPrices"];
 	
 	NSError *error = nil;
-	_fuelPrices = [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error];
+	fuelPrices =[[NSMutableArray alloc] initWithArray: [[ADSAppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:request error:&error]];
     
-    for (int i=0; i<[_fuelPrices count]; i++) {
-        FuelPrice *tempFuelPrice = [_fuelPrices objectAtIndex:i];
+    for (int i=0; i<[fuelPrices count]; i++) {
+        FuelPrice *tempFuelPrice = [fuelPrices objectAtIndex:i];
         NSLog(@"Price=%@",tempFuelPrice.price);
         NSLog(@"Type=%@",tempFuelPrice.fuel.type.type);
         NSLog(@"GasStation=%@",tempFuelPrice.fuel.gasStation.name);
@@ -59,7 +57,7 @@
     self.title = @"Fuel";
     self.table.dataSource = self;
     self.table.delegate = self;
-    [self.table registerClass:[FuelCell class] forCellReuseIdentifier:@"FuelCell"];
+    //[self.table registerClass:[FuelCell class] forCellReuseIdentifier:@"FuelCell"];
 	// Do any additional setup after loading the view.
 }
 
@@ -81,31 +79,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return _fuelPrices.count;
+	return fuelPrices.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	FuelPrice *fuelPrice = [_fuelPrices objectAtIndex:indexPath.row];
+	FuelPrice *fuelPrice = [fuelPrices objectAtIndex:indexPath.row];
 	
     FuelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FuelCell"];
     
     if(cell ==nil){
-        cell = [[FuelCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FuelCell"];
+        cell = [[FuelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FuelCell"];
     }
     
 	
-	cell.priceLabel.text = [fuelPrice.price stringValue];
+	cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [fuelPrice.price doubleValue]];//@"%f",[fuelPrice.price doubleValue];
+    
     cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
     switch ([fuelPrice.fuel.type.type integerValue]) {
         case 1:
             cell.fuelTypeLabel.text=@"A";
-            cell.fuelTypeLabel.textColor=[UIColor blueColor];
+            cell.fuelTypeLabel.textColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
             break;
         
         case 2:
             cell.fuelTypeLabel.text=@"D";
-            cell.fuelTypeLabel.textColor=[UIColor greenColor];
+            cell.fuelTypeLabel.textColor=[UIColor colorWithRed:70.0/255.0 green:116.0/255.0 blue:8.0/255.0 alpha:1.0];
             break;
             
         default:
@@ -128,7 +127,7 @@
 		UITableViewCell *cell = sender;
 		NSIndexPath *indexPath = [self.table indexPathForCell:cell];
 		
-		FuelPrice *fuelprice = [_fuelPrices objectAtIndex:indexPath.row];
+		FuelPrice *fuelprice = [fuelPrices objectAtIndex:indexPath.row];
 		
 		FuelViewController *ctrl = segue.destinationViewController;
 		ctrl.fuelPrice = fuelprice;
