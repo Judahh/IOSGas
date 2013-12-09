@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListGasStationViewController : UIViewController< UITableViewDelegate, UITableViewDataSource>
+@interface ListGasStationViewController : UIViewController< UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSMutableArray *gasStations;
-
+@property (strong, nonatomic) NSArray *searchResult;
 @end

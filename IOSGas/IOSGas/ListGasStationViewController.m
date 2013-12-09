@@ -11,6 +11,7 @@
 #import "GasStationCell.h"
 #import "GasStationViewController.h"
 #import "ADSAppDelegate.h"
+#import "Distributor.h"
 
 @interface ListGasStationViewController ()
 
@@ -18,7 +19,7 @@
 
 @implementation ListGasStationViewController
 
-@synthesize table, gasStations; //.m
+@synthesize table, gasStations, searchResult; //.m
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +53,7 @@
 {
     [super viewDidLoad];
     self.title = @"Gas Station";
+    [self.navigationController setNavigationBarHidden:NO];
     [self.table reloadData];
     self.table.dataSource = self;
     self.table.delegate = self;
@@ -65,7 +67,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)filterContentForSearchText: (NSString *) searchText
+{
+    NSArray *temp = [[NSArray alloc] initWithArray:self.gasStations];
+    //NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchText];
+    
+    NSMutableArray *searchArray = [[NSMutableArray alloc] init];
+    
+    self.searchResult = [[NSArray alloc] init];
+    
+    for (int index=0; index<temp.count; index++) {
+        NSString *name = [[temp objectAtIndex:index] name];
+        NSString *name2 = [[[temp objectAtIndex:index] distributor] name];
+        if (([name.lowercaseString rangeOfString:searchText.lowercaseString].location!=NSNotFound)||
+            ([name2.lowercaseString rangeOfString:searchText.lowercaseString].location!=NSNotFound)) {
+            [searchArray addObject:name];
+        }
+        
+        //if([searchText.lowercaseString isEqualToString:@"gasoline"]||[searchText.lowercaseString isEqualToString:@"gas"]){
+            
+        //}
+        
+        //if([searchText.lowercaseString isEqualToString:@"alcohol"]){
+            
+        //}
+        
+        //if([searchText.lowercaseString isEqualToString:@"diesel"]){
+            
+        //}
+    }
+    
+    NSLog(@"TESTE A");
+    
+    self.searchResult = searchArray;
+}
 
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -77,12 +118,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return gasStations.count;
+    if (tableView == self.table) {
+        return gasStations.count;
+    } else {
+        return  searchResult.count;
+    }
+	
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	
     static NSString *CellIdentifier = @"GasStationCell";
     GasStationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -90,13 +135,36 @@
         cell = [[GasStationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         NSLog(@"Cell=Null");
 	}
-    
-    GasStation *gasStation = [gasStations objectAtIndex:indexPath.row];
-    
-	cell.nameLabel.text = gasStation.name;
-    NSLog(@"GASNAME=%@",gasStation.name);
-    //[cell reloadInputViews];
-    NSLog(@"GASLabel=%@",cell.nameLabel.text);
+    NSLog(@"TESTE B");
+    if (tableView == self.table) {
+        
+        NSLog(@"TESTE Z");
+        GasStation *gasStation = [gasStations objectAtIndex:indexPath.row];
+        
+        cell.nameLabel.text = gasStation.name;
+        NSLog(@"GASNAME=%@",gasStation.name);
+        //[cell reloadInputViews];
+        NSLog(@"GASLabel=%@",cell.nameLabel.text);
+        //cell.detailTextLabel.text = [NSString stringWithFormat:@"ID: %@", currentContext.ID];
+        
+    } else {
+        NSLog(@"TESTE K");
+        
+        for (int index=0; index < gasStations.count; index++) {
+            
+            NSLog(@"TESTE K1");
+            GasStation *gasStation = [gasStations objectAtIndex:index];
+            NSLog(@"TESTE K3");
+            NSString *gasStationResult = [self.searchResult objectAtIndex:indexPath.row];
+            NSLog(@"TESTE K4");
+            if([gasStation.name isEqualToString:gasStationResult]){
+                cell.textLabel.text = gasStationResult;
+                NSLog(@"TESTE K5");
+                return cell;
+            }
+        }
+    }
+    NSLog(@"TESTE C"); 
     
     return cell;
 }
