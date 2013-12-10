@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListFuelViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ListFuelViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) NSArray *searchResult;
 @property (strong, nonatomic) NSMutableArray *fuelPrices;
+
 @end

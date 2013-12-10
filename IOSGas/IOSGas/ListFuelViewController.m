@@ -21,7 +21,7 @@
 
 @implementation ListFuelViewController
 
-@synthesize table, fuelPrices; //.m
+@synthesize table, fuelPrices, searchResult; //.m
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,6 +67,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)filterContentForSearchText: (NSString *) searchText
+{
+    NSArray *temp = [[NSArray alloc] initWithArray:self.fuelPrices];
+    //NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchText];
+    
+    NSMutableArray *searchArray = [[NSMutableArray alloc] init];
+    
+    self.searchResult = [[NSArray alloc] init];
+    
+    for (int index=0; index<temp.count; index++) {
+        NSString *name = [[[[temp objectAtIndex:index] fuel] gasStation] name];
+        NSDecimalNumber *price = [[temp objectAtIndex:index] price];
+        NSNumber *fuel = [[[[temp objectAtIndex:index] fuel] type] type];
+        
+        NSLog(@"Name=%@",name);
+        NSLog(@"Price=%@",price);
+        NSLog(@"Fuel=%@",fuel);
+        
+        if (([name.lowercaseString rangeOfString:searchText.lowercaseString].location!=NSNotFound)) {
+            [searchArray addObject:[temp objectAtIndex:index]];
+        }
+        
+        switch ([fuel integerValue]) {
+            case 1:
+                if([searchText.lowercaseString isEqualToString:@"diesel"]){
+                    [searchArray addObject:[temp objectAtIndex:index]];
+                }
+                break;
+                
+            case 2:
+                if([searchText.lowercaseString isEqualToString:@"alcohol"]){
+                    [searchArray addObject:[temp objectAtIndex:index]];
+                }
+                break;
+                
+            default:
+                if([searchText.lowercaseString isEqualToString:@"gasoline"]||[searchText.lowercaseString isEqualToString:@"gas"]){
+                    [searchArray addObject:[temp objectAtIndex:index]];
+                }
+                break;
+        }
+        
+        NSDecimalNumber *value=[NSDecimalNumber numberWithDouble:[searchText doubleValue]];
+        if ([value floatValue]>0) {
+            if ([value floatValue]>=[price floatValue]) {
+                [searchArray addObject:[temp objectAtIndex:index]];
+            }
+        }
+    }
+    
+    NSLog(@"TESTE A");
+    
+    self.searchResult = searchArray;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
 
 #pragma mark - Table view data source
 
@@ -79,7 +139,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return fuelPrices.count;
+    if (tableView == self.table) {
+        return fuelPrices.count;
+    } else {
+        return  searchResult.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,32 +156,73 @@
         cell = [[FuelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FuelCell"];
     }
     
+    if (tableView == self.table) {
 	
-	cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [fuelPrice.price doubleValue]];//@"%f",[fuelPrice.price doubleValue];
-    
-    cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
-    switch ([fuelPrice.fuel.type.type integerValue]) {
-        case 1:
-            cell.fuelTypeLabel.text=@"A";
-            cell.fuelTypeLabel.textColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+        cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [fuelPrice.price doubleValue]];//@"%f",[fuelPrice.price doubleValue];
+        cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
+        switch ([fuelPrice.fuel.type.type integerValue]) {
+            case 1:
+                cell.fuelTypeLabel.text=@"A";
+                cell.fuelTypeLabel.textColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
             break;
         
-        case 2:
-            cell.fuelTypeLabel.text=@"D";
-            cell.fuelTypeLabel.textColor=[UIColor colorWithRed:70.0/255.0 green:116.0/255.0 blue:8.0/255.0 alpha:1.0];
+            case 2:
+                cell.fuelTypeLabel.text=@"D";
+                cell.fuelTypeLabel.textColor=[UIColor colorWithRed:70.0/255.0 green:116.0/255.0 blue:8.0/255.0 alpha:1.0];
             break;
             
-        default:
-            cell.fuelTypeLabel.text=@"G";
-            cell.fuelTypeLabel.textColor=[UIColor redColor];
+            default:
+                cell.fuelTypeLabel.text=@"G";
+                cell.fuelTypeLabel.textColor=[UIColor redColor];
             break;
+        }
+    
+    } else {
+        NSLog(@"TESTE K");
+        
+        for (int index=0; index < fuelPrices.count; index++) {
+            NSLog(@"TESTE K1");
+            FuelPrice *fuelPrice = [fuelPrices objectAtIndex:index];
+            NSLog(@"TESTE K3");
+            FuelPrice *fuelPriceResult = [self.searchResult objectAtIndex:indexPath.row];
+            NSLog(@"TESTE K4");
+            
+            if(fuelPrice == fuelPriceResult){
+                cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", [fuelPrice.price doubleValue]];//@"%f",[fuelPrice.price doubleValue];
+                cell.gasStationLabel.text = fuelPrice.fuel.gasStation.name;
+                
+                switch ([fuelPrice.fuel.type.type integerValue]) {
+                    case 1:
+                        cell.fuelTypeLabel.text=@"A";
+                        cell.fuelTypeLabel.textColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+                        break;
+                        
+                    case 2:
+                        cell.fuelTypeLabel.text=@"D";
+                        cell.fuelTypeLabel.textColor=[UIColor colorWithRed:70.0/255.0 green:116.0/255.0 blue:8.0/255.0 alpha:1.0];
+                        break;
+                        
+                    default:
+                        cell.fuelTypeLabel.text=@"G";
+                        cell.fuelTypeLabel.textColor=[UIColor redColor];
+                        break;
+                }
+                
+                NSLog(@"NORMAL Name=%@",fuelPrice.fuel.gasStation.name);
+                NSLog(@"NORMAL Price=%@",[NSString stringWithFormat:@"%.2f", [fuelPrice.price doubleValue]]);
+                NSLog(@"NORMAL Fuel=%@",fuelPrice.fuel.type.type);
+                
+                NSLog(@"Name=%@",cell.gasStationLabel.text);
+                NSLog(@"Price=%@",cell.priceLabel.text);
+                NSLog(@"Fuel=%@",cell.fuelTypeLabel.text);
+                
+                NSLog(@"TESTE K5");
+                
+                return cell;
+            }
+        }
     }
-//    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Aviso!"
-//                                                     message:@"Sem acesso ao servidor, por gentileza consulte o baitinga do suporte"
-//                                                  delegate:self
-//                                         cancelButtonTitle:@"OK"
-//                                         otherButtonTitles:nil, nil];
-//  [alerta show];
+
     
     return cell;
 }

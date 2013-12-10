@@ -34,6 +34,12 @@
     //@"%f",    _priceLabel.text = [_fuelPrice.price stringValue];
     _gasStationLabel.text = _fuelPrice.fuel.gasStation.name;
     _addressLabel.text = _fuelPrice.fuel.gasStation.address;
+    //    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Aviso!"
+    //                                                     message:@"Campos incompletos"
+    //                                                  delegate:self
+    //                                         cancelButtonTitle:@"OK"
+    //                                         otherButtonTitles:nil, nil];
+    //  [alerta show];
 }
 
 - (void)didReceiveMemoryWarning

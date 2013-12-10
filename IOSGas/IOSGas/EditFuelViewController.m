@@ -161,7 +161,9 @@
     
     GasStation *gasStationTemp;
     
-    for (int i=0; i<[gasStations count]; i++) {
+    bool *noGasStation=true;
+    
+    for (int i=0; (i<[gasStations count]) && (noGasStation); i++) {
         gasStationTemp=[gasStations objectAtIndex:i];
         
         NSLog(@"GasStation:%@",gasStationTemp.name);
@@ -169,14 +171,16 @@
         NSInteger number=[self.gasStation selectedRowInComponent:0];
         
         GasStation *tempGasStation = [self.gasStationArray objectAtIndex:number];
-        if(gasStationTemp==tempGasStation){
+        
+        if([gasStationTemp.name isEqualToString:tempGasStation.name]){
             i=[fueltypes count];
+            noGasStation=false;
         }else{
             gasStationTemp=nil;
         }
     }
     
-    if (gasStationTemp == nil){
+    if (noGasStation){
 		gasStationTemp = [NSEntityDescription insertNewObjectForEntityForName:@"GasStation" inManagedObjectContext:context];
         
         NSInteger number=[self.gasStation selectedRowInComponent:0];

@@ -10,6 +10,7 @@
 
 @interface GasStationCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *distributorLabel;
 
 //-(void)nameLabel:(NSString *) nameLabel;
 

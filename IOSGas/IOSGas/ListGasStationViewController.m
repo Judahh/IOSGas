@@ -83,18 +83,6 @@
             ([name2.lowercaseString rangeOfString:searchText.lowercaseString].location!=NSNotFound)) {
             [searchArray addObject:name];
         }
-        
-        //if([searchText.lowercaseString isEqualToString:@"gasoline"]||[searchText.lowercaseString isEqualToString:@"gas"]){
-            
-        //}
-        
-        //if([searchText.lowercaseString isEqualToString:@"alcohol"]){
-            
-        //}
-        
-        //if([searchText.lowercaseString isEqualToString:@"diesel"]){
-            
-        //}
     }
     
     NSLog(@"TESTE A");
@@ -142,6 +130,7 @@
         GasStation *gasStation = [gasStations objectAtIndex:indexPath.row];
         
         cell.nameLabel.text = gasStation.name;
+        cell.distributorLabel.text =gasStation.distributor.name;
         NSLog(@"GASNAME=%@",gasStation.name);
         //[cell reloadInputViews];
         NSLog(@"GASLabel=%@",cell.nameLabel.text);
@@ -159,6 +148,7 @@
             NSLog(@"TESTE K4");
             if([gasStation.name isEqualToString:gasStationResult]){
                 cell.textLabel.text = gasStationResult;
+                cell.distributorLabel.text =gasStation.distributor.name;
                 NSLog(@"TESTE K5");
                 return cell;
             }
