@@ -286,7 +286,6 @@
         <!--List Gas Station View Contoller - Gas Stations-->
         <scene sceneID="hfD-t5-kHS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="LZW-Yg-uPB" customClass="ListGasStationViewContoller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5H-cx-HPy"/>
@@ -332,6 +331,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Stations" image="GasStation.png" id="PI1-S2-T0O"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="693" y="-187"/>
         </scene>
