@@ -19,4 +19,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
++(ADSAppDelegate *)sharedAppDelegate;
+
 @end

@@ -1,5 +1,5 @@
 //
-//  GasStation.h
+//  FuelType.h
 //  IOSGas
 //
 //  Created by Judah Holanda on 12/7/13.
@@ -9,17 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Distributor, Fuel;
+@class Fuel;
 
-@interface GasStation : NSManagedObject
+@interface FuelType : NSManagedObject
 
-@property (nonatomic, retain) NSString * address;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) Distributor *distributor;
+@property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSSet *fuel;
 @end
 
-@interface GasStation (CoreDataGeneratedAccessors)
+@interface FuelType (CoreDataGeneratedAccessors)
 
 - (void)addFuelObject:(Fuel *)value;
 - (void)removeFuelObject:(Fuel *)value;

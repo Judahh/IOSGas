@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Distributor" representedClassName="Distributor" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gasStation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GasStation" inverseName="distributor" inverseEntity="GasStation" syncable="YES"/>
     </entity>
     <entity name="Fuel" representedClassName="Fuel" syncable="YES">
+        <relationship name="gasStation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GasStation" inverseName="fuel" inverseEntity="GasStation" syncable="YES"/>
+        <relationship name="price" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FuelPrice" inverseName="fuel" inverseEntity="FuelPrice" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FuelType" inverseName="fuel" inverseEntity="FuelType" syncable="YES"/>
+    </entity>
+    <entity name="FuelPrice" representedClassName="FuelPrice" syncable="YES">
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="subType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="gasStation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GasStation" syncable="YES"/>
+        <relationship name="fuel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fuel" inverseName="price" inverseEntity="Fuel" syncable="YES"/>
+    </entity>
+    <entity name="FuelType" representedClassName="FuelType" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="fuel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fuel" inverseName="type" inverseEntity="Fuel" syncable="YES"/>
     </entity>
     <entity name="GasStation" representedClassName="GasStation" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="distributor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Distributor" syncable="YES"/>
+        <relationship name="distributor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Distributor" inverseName="gasStation" inverseEntity="Distributor" syncable="YES"/>
+        <relationship name="fuel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fuel" inverseName="gasStation" inverseEntity="Fuel" syncable="YES"/>
     </entity>
+    <fetchRequest name="FetchRequestForAllDistributors" entity="Distributor"/>
+    <fetchRequest name="FetchRequestForAllFuelPrices" entity="FuelPrice"/>
+    <fetchRequest name="FetchRequestForAllFuels" entity="Fuel"/>
+    <fetchRequest name="FetchRequestForAllFuelTypes" entity="FuelType"/>
+    <fetchRequest name="FetchRequestForAllGasStations" entity="GasStation"/>
     <elements>
-        <element name="GasStation" positionX="72" positionY="254" width="144" height="88"/>
-        <element name="Distributor" positionX="-216" positionY="252" width="144" height="58"/>
-        <element name="Fuel" positionX="360" positionY="257" width="144" height="103"/>
+        <element name="Distributor" positionX="-432" positionY="144" width="144" height="75"/>
+        <element name="Fuel" positionX="-2" positionY="144" width="146" height="90"/>
+        <element name="FuelPrice" positionX="216" positionY="144" width="144" height="75"/>
+        <element name="FuelType" positionX="0" positionY="-0" width="144" height="75"/>
+        <element name="GasStation" positionX="-216" positionY="147" width="144" height="105"/>
     </elements>
 </model>

@@ -102,8 +102,9 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"IOSGas.sqlite"];
+    
+    NSLog(@"URL:%@", storeURL);
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -146,4 +147,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
++(ADSAppDelegate *)sharedAppDelegate {
+	return [UIApplication sharedApplication].delegate;
+}
 @end

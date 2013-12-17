@@ -1,5 +1,5 @@
 //
-//  ListGasStationViewController.h
+//  ListPriceViewController.h
 //  IOSGas
 //
 //  Created by Judah Holanda on 12/5/13.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListGasStationViewController : UIViewController< UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface ListFuelViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) NSMutableArray *gasStations;
 @property (strong, nonatomic) NSArray *searchResult;
+@property (strong, nonatomic) NSMutableArray *fuelPrices;
+
 @end
