@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FvO-RH-E60">
     <dependencies>
+        <development version="5000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--List Price View Contoller - Price-->
+        <!--List Fuel View Controller - Fuel-->
         <scene sceneID="t1j-Qj-sSJ">
             <objects>
-                <viewController id="G7c-f5-cDN" customClass="ListPriceViewContoller" sceneMemberID="viewController">
+                <viewController id="G7c-f5-cDN" customClass="ListFuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NmB-He-tSt"/>
                         <viewControllerLayoutGuide type="bottom" id="NFB-FM-yY3"/>
@@ -17,20 +18,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="axC-Lz-aVA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
+                                <rect key="frame" x="0.0" y="45" width="320" height="474"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="BpQ-r3-hZb">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nui-ty-S9H">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="FuelCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FuelCell" id="nui-ty-S9H" customClass="FuelCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nui-ty-S9H" id="OTE-Jp-s62">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-5a-wxf">
@@ -57,24 +53,61 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PR0-sh-RUc" kind="push" id="Zrb-PS-cKT"/>
+                                            <outlet property="GasStationLabel" destination="FAL-wx-gaz" id="BsM-do-zEf"/>
+                                            <outlet property="fuelTypeLabel" destination="Dn1-VL-E4p" id="v1e-bM-vC7"/>
+                                            <outlet property="gasStationLabel" destination="FAL-wx-gaz" id="j7s-eu-cY8"/>
+                                            <outlet property="priceLabel" destination="HL1-5a-wxf" id="bBK-Fk-lLa"/>
+                                            <segue destination="PR0-sh-RUc" kind="push" identifier="goToFuelInformation" id="Zrb-PS-cKT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="G7c-f5-cDN" id="uBa-dW-0U3"/>
+                                    <outlet property="delegate" destination="G7c-f5-cDN" id="jZo-bn-2mk"/>
+                                </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="9cr-rh-ero">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="G7c-f5-cDN" id="V1o-sA-Nc9"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Price" image="Gas.png" id="JMY-le-Ubj"/>
+                    <tabBarItem key="tabBarItem" title="Fuel" image="Gas.png" id="JMY-le-Ubj"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="c3q-56-ern" id="lns-jS-6os"/>
+                        <outlet property="table" destination="axC-Lz-aVA" id="r2f-dh-zen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQv-Nn-z7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="aK9-Wm-DyG">
+                    <connections>
+                        <outlet property="delegate" destination="G7c-f5-cDN" id="LV5-jA-q3c"/>
+                        <outlet property="searchContentsController" destination="G7c-f5-cDN" id="1az-HU-nU3"/>
+                        <outlet property="searchResultsDataSource" destination="G7c-f5-cDN" id="32z-Wa-XtC"/>
+                        <outlet property="searchResultsDelegate" destination="G7c-f5-cDN" id="O87-kr-GPj"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="c3q-56-ern">
+                    <connections>
+                        <outlet property="delegate" destination="G7c-f5-cDN" id="cgw-ah-6Uh"/>
+                        <outlet property="searchBar" destination="9cr-rh-ero" id="Av0-8Q-TsP"/>
+                        <outlet property="searchContentsController" destination="G7c-f5-cDN" id="zUb-uD-WMn"/>
+                        <outlet property="searchResultsDataSource" destination="G7c-f5-cDN" id="c46-Qa-fK1"/>
+                        <outlet property="searchResultsDelegate" destination="G7c-f5-cDN" id="qag-1o-4aa"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="693" y="-847"/>
+            <point key="canvasLocation" x="471" y="-1514"/>
         </scene>
-        <!--Price View Controller - Price-->
+        <!--Fuel View Controller - Fuel Information-->
         <scene sceneID="MvT-cU-toa">
             <objects>
-                <viewController id="PR0-sh-RUc" customClass="PriceViewController" sceneMemberID="viewController">
+                <viewController id="PR0-sh-RUc" customClass="FuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oPr-Db-4TI"/>
                         <viewControllerLayoutGuide type="bottom" id="yN1-R1-8HS"/>
@@ -108,19 +141,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Price" id="Dok-sw-SG0">
+                    <navigationItem key="navigationItem" title="Fuel Information" id="Dok-sw-SG0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="JmU-06-5Io">
                             <connections>
-                                <segue destination="z4y-1m-Rxn" kind="push" id="ifI-U8-lLG"/>
+                                <segue destination="z4y-1m-Rxn" kind="push" identifier="goToEditFuel" id="ifI-U8-lLG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="LgJ-j1-QDW" id="g3k-PJ-Oa1"/>
+                        <outlet property="gasStationLabel" destination="g6j-2Z-OH9" id="hb8-um-4sM"/>
+                        <outlet property="map" destination="sr8-X4-z6E" id="p9p-zP-e4x"/>
+                        <outlet property="priceLabel" destination="3zF-om-heC" id="mdb-7V-NUU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDm-E2-Yx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="-847"/>
+            <point key="canvasLocation" x="1286" y="-1522"/>
         </scene>
-        <!--Gas Station View Controller-->
+        <!--Gas Station View Controller - Gas Station Information-->
         <scene sceneID="fQg-pA-8Rf">
             <objects>
                 <viewController id="jEr-Dn-tSM" customClass="GasStationViewController" sceneMemberID="viewController">
@@ -157,19 +196,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="u6C-e9-yX0">
+                    <navigationItem key="navigationItem" title="Gas Station Information" id="u6C-e9-yX0">
                         <barButtonItem key="rightBarButtonItem" image="edit1.png" id="kTn-ZL-Of2">
                             <connections>
-                                <segue destination="8Of-kD-8Y3" kind="push" id="3Qs-cD-YnQ"/>
+                                <segue destination="8Of-kD-8Y3" kind="push" identifier="goToEditGasStation" id="3Qs-cD-YnQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="yA4-Tu-zeG" id="BG3-BE-vSn"/>
+                        <outlet property="distributorLabel" destination="w2q-4p-Cc8" id="0zC-0S-Xna"/>
+                        <outlet property="map" destination="EeZ-1c-Q1w" id="5ft-S7-07A"/>
+                        <outlet property="nameLabel" destination="ku7-Gg-wma" id="9Sx-RQ-2Ky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29v-W7-wZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="-187"/>
+            <point key="canvasLocation" x="1286" y="521"/>
         </scene>
-        <!--Edit Gas Station View Controller-->
+        <!--Edit Gas Station View Controller - Edit Gas Station-->
         <scene sceneID="tAk-TS-WPE">
             <objects>
                 <viewController id="8Of-kD-8Y3" customClass="EditGasStationViewController" sceneMemberID="viewController">
@@ -185,7 +230,10 @@
                                 <rect key="frame" x="20" y="72" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8Of-kD-8Y3" id="DyU-1x-X2m"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hrk-Ig-Ptf">
                                 <rect key="frame" x="20" y="110" width="280" height="29"/>
@@ -202,7 +250,10 @@
                                 <rect key="frame" x="20" y="146" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8Of-kD-8Y3" id="uT7-MU-rPy"/>
+                                </connections>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UFn-t4-Cud">
                                 <rect key="frame" x="0.0" y="184" width="320" height="384"/>
@@ -211,18 +262,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9EO-fx-fPA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IYd-W4-uEK"/>
+                    <navigationItem key="navigationItem" title="Edit Gas Station" id="9EO-fx-fPA">
+                        <barButtonItem key="rightBarButtonItem" image="save.png" id="IYd-W4-uEK">
+                            <connections>
+                                <action selector="save:" destination="8Of-kD-8Y3" id="02x-hW-vgo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressMap" destination="UFn-t4-Cud" id="OuG-QE-mTB"/>
+                        <outlet property="addressTextField" destination="2ZN-YH-YaC" id="JiF-dl-sOe"/>
+                        <outlet property="distributorSegmentedControl" destination="hrk-Ig-Ptf" id="4cP-Za-hpT"/>
+                        <outlet property="nameTextField" destination="WbS-bH-t2R" id="0NW-c9-jpo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZW-59-NLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-187"/>
+            <point key="canvasLocation" x="2403" y="521"/>
         </scene>
-        <!--Edit Price View Controller-->
+        <!--Edit Fuel View Controller - Edit Fuel-->
         <scene sceneID="tVT-1U-3EK">
             <objects>
-                <viewController id="z4y-1m-Rxn" customClass="EditPriceViewController" sceneMemberID="viewController">
+                <viewController id="z4y-1m-Rxn" customClass="EditFuelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="52R-7c-Stv"/>
                         <viewControllerLayoutGuide type="bottom" id="PHq-FJ-EV9"/>
@@ -235,7 +296,10 @@
                                 <rect key="frame" x="20" y="77" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="z4y-1m-Rxn" id="rjG-3o-hEn"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gnm-71-Dux">
                                 <rect key="frame" x="20" y="115" width="280" height="29"/>
@@ -253,20 +317,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ps3-Qr-0m3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="7wb-aP-mLe"/>
+                    <navigationItem key="navigationItem" title="Edit Fuel" id="Ps3-Qr-0m3">
+                        <barButtonItem key="rightBarButtonItem" image="save.png" id="7wb-aP-mLe">
+                            <connections>
+                                <action selector="save:" destination="z4y-1m-Rxn" id="Exh-jp-hAl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gasStation" destination="R0H-CU-AOQ" id="9vF-Re-hfD"/>
+                        <outlet property="price" destination="nL7-N2-jlr" id="WHb-Qx-Jd1"/>
+                        <outlet property="type" destination="gnm-71-Dux" id="FND-BW-a2m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yah-l7-kfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-847"/>
+            <point key="canvasLocation" x="2403" y="-1522"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--First Tab Bar Controller - Search-->
         <scene sceneID="cAr-j4-nRX">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="e3W-5N-3YP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="byz-yd-Ryy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qv3-BM-4kH"/>
+                <tabBarController definesPresentationContext="YES" id="e3W-5N-3YP" customClass="UIFirstTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Search" id="byz-yd-Ryy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qv3-BM-4kH">
+                            <connections>
+                                <action selector="AddItem:" destination="e3W-5N-3YP" id="q9J-qi-tUA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="453-zQ-cNS">
@@ -275,18 +352,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="AddButton" destination="qv3-BM-4kH" id="hJ9-0Y-AoS"/>
                         <segue destination="G7c-f5-cDN" kind="relationship" relationship="viewControllers" id="wN4-Hl-RxS"/>
                         <segue destination="LZW-Yg-uPB" kind="relationship" relationship="viewControllers" id="VMR-1Z-2ib"/>
+                        <segue destination="z4y-1m-Rxn" kind="push" identifier="goToNewFuel" id="FvF-rF-BUJ"/>
+                        <segue destination="8Of-kD-8Y3" kind="push" identifier="goToNewGasStation" id="7n7-DS-rxL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya1-Tj-glT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-75" y="-503"/>
         </scene>
-        <!--List Gas Station View Contoller - Gas Stations-->
+        <!--List Gas Station View Controller - Gas Stations-->
         <scene sceneID="hfD-t5-kHS">
             <objects>
+<<<<<<< HEAD
                 <viewController id="LZW-Yg-uPB" customClass="ListGasStationViewContoller" sceneMemberID="viewController">
+=======
+                <viewController id="LZW-Yg-uPB" customClass="ListGasStationViewController" sceneMemberID="viewController">
+>>>>>>> 0d1d092ea6780f2efedc551b8072e8df225e53a3
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5H-cx-HPy"/>
                         <viewControllerLayoutGuide type="bottom" id="wvP-H2-iO5"/>
@@ -296,44 +380,72 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pa7-SJ-ZcT">
-                                <rect key="frame" x="0.0" y="64" width="320" height="454"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="409"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="2rI-yv-KCm">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uXo-TM-Djg">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GasStationCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="GasStationCell" id="uXo-TM-Djg" customClass="GasStationCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uXo-TM-Djg" id="h2M-DL-t1l">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQz-Pn-F2V">
-                                                    <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                                    <rect key="frame" x="20" y="2" width="280" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-vA-ocM">
+                                                    <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="jEr-Dn-tSM" kind="push" id="c6m-39-ASn"/>
+                                            <outlet property="distributorLabel" destination="CvY-vA-ocM" id="aXz-4N-UzW"/>
+                                            <outlet property="nameLabel" destination="rQz-Pn-F2V" id="nH2-Tz-3UB"/>
+                                            <segue destination="jEr-Dn-tSM" kind="push" identifier="goToGasStationInformation" id="c6m-39-ASn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="cA6-j2-plc">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LZW-Yg-uPB" id="tes-Kc-yoD"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Stations" image="GasStation.png" id="PI1-S2-T0O"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="TwR-Ku-0Bk" id="BLz-UT-15K"/>
+                        <outlet property="table" destination="Pa7-SJ-ZcT" id="1kj-6p-KTo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJQ-Jw-fsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+<<<<<<< HEAD
+=======
+                <searchDisplayController id="TwR-Ku-0Bk">
+                    <connections>
+                        <outlet property="delegate" destination="LZW-Yg-uPB" id="sfp-bI-jod"/>
+                        <outlet property="searchBar" destination="cA6-j2-plc" id="uoV-EW-9q0"/>
+                        <outlet property="searchContentsController" destination="LZW-Yg-uPB" id="Kar-Tc-AT9"/>
+                        <outlet property="searchResultsDataSource" destination="LZW-Yg-uPB" id="UuK-hb-fqn"/>
+                        <outlet property="searchResultsDelegate" destination="LZW-Yg-uPB" id="f9I-DV-lNe"/>
+                    </connections>
+                </searchDisplayController>
+>>>>>>> 0d1d092ea6780f2efedc551b8072e8df225e53a3
             </objects>
-            <point key="canvasLocation" x="693" y="-187"/>
+            <point key="canvasLocation" x="471" y="521"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r2h-dr-VTI">
@@ -355,10 +467,15 @@
         <image name="Gas.png" width="60" height="60"/>
         <image name="GasStation.png" width="60" height="60"/>
         <image name="edit1.png" width="23" height="23"/>
+        <image name="save.png" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ifI-U8-lLG"/>
+        <segue reference="3Qs-cD-YnQ"/>
+    </inferredMetricsTieBreakers>
 </document>
